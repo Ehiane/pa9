@@ -1,0 +1,27 @@
+base class:
+cell: 
+	Block:
+		Shape: [L,T, Z, I , J , S]
+
+
+
+Attachment: //when 2 or more blocks meet
+we could use bounds of each cell to detect when two shapes connect.
+
+
+To gain a point:
+a whole row has to be filled with blocks and then the row is deleted. 
+
+
+
+Cole- making the grid
+Will - making The Shape Class
+Ehiane- making the block cell class. 
+Danny - 
+
+
+
+
+
+
+
