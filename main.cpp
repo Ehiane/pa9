@@ -1,22 +1,35 @@
-#include "game.hpp"
-
-using namespace sf;
+#include"GameCenter.hpp"
 int main()
 {
 
-	
-	//Window Elements:
-	RenderWindow window(VideoMode(800, 600), "_Game_",Style::Titlebar | Style::Close);
-	Event event;
-
+	//init Game Engine.
+	Game runGame;
 
 	//GAME LOOP:
-	while (window.isOpen()) {
+	while (runGame.running()) {
+
+		//update:
+		runGame.update();
+
+		//render:
+		runGame.render();
+	}
+
+	//END OF APPLICATION:
+
+
+	return 0;
+}
+
+/**************************************************************
+* NOTE:
+//videomode - used to put the width and height of the window.
+
 
 
 		//Event Polling:
 		while (window.pollEvent(event)) {
-			//while we are getting events from the window we want to save them to "event" 
+			//while we are getting events from the window we want to save them to "event"
 
 			switch (event.type) { //checks the event that happens when triggered
 
@@ -32,7 +45,7 @@ int main()
 				break;
 
 			}
-			
+
 		}//end of 1 frame.
 
 		//UPDATE:
@@ -41,19 +54,8 @@ int main()
 
 
 		//RENDER: (drawing it / actualizing your command.)
-		window.clear(Color::Color(196,164,134));//clear previous frame, with background light brown .
+		window.clear(Color::Color(196, 164, 134));//clear previous frame, with background light brown .
 		//window.draw()
 		window.display();//display what has been drawn
-	}
-
-
-	//END OF APPLICATION:
-
-
-	return 0;
-}
-/**************************************************************
-* NOTE:
-//videomode - used to put the width and height of the window.
 
 ***************************************************************/
