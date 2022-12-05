@@ -1,7 +1,7 @@
-#include "GameCenter.hpp"
+#include "GameCenter.h"
 
 
-Game::Game(){
+Game::Game() {
 
 	this->initVariables();
 	this->initWindows();
@@ -9,7 +9,7 @@ Game::Game(){
 
 }
 
-Game::~Game(){
+Game::~Game() {
 	//VERY IMPORTANT
 	delete this->window;
 
@@ -30,7 +30,7 @@ void Game::update() {
 	std::cout << "Mouse Pos: " << Mouse::getPosition(*this->window).x << Mouse::getPosition(*this->window).y << "\n";
 }
 
-void Game::pollEvents(){
+void Game::pollEvents() {
 
 
 	while (this->window->pollEvent(this->event)) {
@@ -55,21 +55,38 @@ void Game::pollEvents(){
 }
 
 //Visualises the output of the code.
-void Game::render(){
+void Game::render() {
 
 	/*Renders the game object
-	
+
 		-Clear Old frame
 		-Render Objects
 		-Display frame in Window
-	
+
 		Renders the game objects.
-	
+
 	*/
 
 	//this->window->clear(Color::Color(192,192,192)); //Silver Grey
 
 	this->window->clear(); //black
+
+	/*
+	GAMEPLAY GRID- WILL CHANGE POSITIONS BASED ON SIZE OF THE WINDOW
+	*/
+	RectangleShape cell;
+	cell.setFillColor(sf::Color::Black);
+	cell.setOutlineColor(sf::Color::White);
+	cell.setSize(sf::Vector2f((this->window->getSize().y / 20), (this->window->getSize().y / 20)));
+	cell.setOutlineThickness(1);
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 10; j++) {
+			cell.setPosition((float)(j * (this->window->getSize().y / 20)), (float)(i * (this->window->getSize().y / 20)));
+			this->window->draw(cell);
+		}
+	}
+	
+
 	//Draw Game here//
 	this->window->draw(this->enemy);
 
@@ -84,24 +101,24 @@ const bool Game::running() const
 
 
 //PRIVATE FUNCTIONS:
-void Game::initVariables(){
+void Game::initVariables() {
 	this->window = nullptr;
 }
 
-void Game::initWindows(){
+void Game::initWindows() {
 	this->videMode.height = 600;
 	this->videMode.width = 800;
 	this->window = new RenderWindow(this->videMode, "Tetris", Style::Titlebar | Style::Close);
-	
+
 	this->window->setFramerateLimit(144);
 }
 
-void Game::initEnemies(){
+void Game::initEnemies() {
 
 
 
-	this->enemy.setPosition(10.f,10.f); //(pixel in float ,pixel in float)
-	this->enemy.setPosition(10.f,10.f); //(pixel in float ,pixel in float)
+	this->enemy.setPosition(10.f, 10.f); //(pixel in float ,pixel in float)
+	this->enemy.setPosition(10.f, 10.f); //(pixel in float ,pixel in float)
 
 
 	this->enemy.setScale(Vector2f(0.5f, 0.5f));
@@ -110,4 +127,3 @@ void Game::initEnemies(){
 	this->enemy.setOutlineColor(Color::Green);
 	this->enemy.setOutlineThickness(1.f);
 }
-
