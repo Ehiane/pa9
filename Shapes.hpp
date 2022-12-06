@@ -9,7 +9,6 @@ class Iblock
 public:
 	Iblock();
 	void Iblock_draw(RenderWindow* window);
-
 	// Positions
 	float farleftx;
 	float farlefty;
@@ -28,7 +27,6 @@ private:
 	Block midleft;
 	Block farright;
 	Block midright;
-
 };
 
 // J Block
@@ -38,6 +36,19 @@ class Jblock
 public:
 	Jblock();
 	void Jblock_draw(RenderWindow* window);
+
+	float topleftx;
+	float toplefty;
+
+	float leftx;
+	float lefty;
+
+	float middlex;
+	float middley;
+
+	float rightx;
+	float righty;
+
 
 private:
 	Block topleft;
@@ -53,6 +64,16 @@ class Lblock
 public:
 	Lblock();
 	void Lblock_draw(RenderWindow* window);
+
+	float toprightx;
+	float toprighty;
+	float leftx;
+	float lefty;
+	float middlex;
+	float middley;
+	float rightx;
+	float righty;
+	
 
 private:
 	Block topright;
@@ -112,22 +133,10 @@ public:
 	Zblock();
 	void Zblock_draw(RenderWindow* window);
 
-	// Positions
-	float topmiddlex;
-	float topmiddley;
-
-	float bottommiddlex;
-	float bottommiddley;
-
-	float bottomrightx;
-	float bottomrighty;
-
-	float topleftx;
-	float toplefty;
-
 private:
 	Block topmiddle;
 	Block bottommiddle;
 	Block bottomright;
 	Block topleft;
 };
+

@@ -1,8 +1,7 @@
 #include "Shapes.hpp"
 
 Iblock::Iblock()
-{
-	// Assign Values to Positions
+{// Assign Values to Positions
 	farleftx = 0.f;
 	farlefty = 0.f;
 	midleftx = 30.f;
@@ -17,7 +16,6 @@ Iblock::Iblock()
 	this->midleft.Cube.setPosition(midleftx, midlefty);
 	this->midright.Cube.setPosition(midrightx, midrighty);
 	this->farright.Cube.setPosition(farrightx, farrighty);
-
 	// Set Initial Color
 	this->farleft.Cube.setFillColor(Color::Cyan);
 	this->farleft.Cube.setOutlineColor(Color::Blue);
@@ -44,10 +42,22 @@ void Iblock::Iblock_draw(RenderWindow* window)
 Jblock::Jblock()
 {
 	// Set Initial Position
-	this->topleft.Cube.setPosition(0.f, 0.f);
-	this->left.Cube.setPosition(0.f, 30.f);
-	this->middle.Cube.setPosition(30.f, 30.f);
-	this->right.Cube.setPosition(60.f, 30.f);
+
+
+	topleftx = 0.f;
+	toplefty = 0.f;
+	leftx = 0.f;
+	lefty = 30.f;
+	middlex = 30.f;
+	middley = 30.f;
+	rightx = 60.f;
+	righty = 30.f;
+
+
+	this->topleft.Cube.setPosition(topleftx, toplefty);
+	this->left.Cube.setPosition(leftx, lefty);
+	this->middle.Cube.setPosition(middlex, middley);
+	this->right.Cube.setPosition(rightx, righty);
 
 	// Set Initial Color
 	this->topleft.Cube.setFillColor(Color::Blue);
@@ -74,6 +84,16 @@ void Jblock::Jblock_draw(RenderWindow* window)
 
 Lblock::Lblock()
 {
+
+	toprightx = 60.f;
+	toprighty = 0.f;
+	leftx = 0.f;
+	lefty = 30.f;
+	middlex = 30.f;
+	middley = 30.f;
+	rightx = 60.f;
+	righty = 30.f;
+
 	// Set Initial Position
 	this->topright.Cube.setPosition(60.f, 0.f);
 	this->left.Cube.setPosition(0.f, 30.f);
@@ -194,21 +214,11 @@ void Tblock::Tblock_draw(RenderWindow* window)
 
 Zblock::Zblock()
 {
-	// Assign Values to Positions
-	topmiddlex = 30.f;
-	topmiddley = 0.f;
-	bottommiddlex = 30.f;
-	bottommiddley = 30.f;
-	bottomrightx = 60.f;
-	bottomrighty = 30.f;
-	topleftx = 0.f;
-	toplefty = 0.f;
-
 	// Set Initial Position
-	this->topmiddle.Cube.setPosition(topmiddlex, topmiddley);
-	this->bottommiddle.Cube.setPosition(bottommiddlex, bottommiddley);
-	this->bottomright.Cube.setPosition(bottomrightx, bottomrighty);
-	this->topleft.Cube.setPosition(topleftx, toplefty);
+	this->topmiddle.Cube.setPosition(30.f, 0.f);
+	this->bottommiddle.Cube.setPosition(30.f, 30.f);
+	this->bottomright.Cube.setPosition(60.f, 30.f);
+	this->topleft.Cube.setPosition(0.f, 0.f);
 
 	// Set Initial Color
 	this->topmiddle.Cube.setFillColor(Color::Red);
