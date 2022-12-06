@@ -2,11 +2,21 @@
 
 Iblock::Iblock()
 {
+	// Assign Values to Positions
+	farleftx = 0.f;
+	farlefty = 0.f;
+	midleftx = 30.f;
+	midlefty = 0.f;
+	midrightx = 60.f;
+	midrighty = 0.f;
+	farrightx = 90.f;
+	farrighty = 0.f;
+
 	// Set Initial Position
-	this->farleft.Cube.setPosition(0.f, 0.f);
-	this->midleft.Cube.setPosition(30.f, 0.f);
-	this->midright.Cube.setPosition(60.f, 0.f);
-	this->farright.Cube.setPosition(90.f, 0.f);
+	this->farleft.Cube.setPosition(farleftx, farlefty);
+	this->midleft.Cube.setPosition(midleftx, midlefty);
+	this->midright.Cube.setPosition(midrightx, midrighty);
+	this->farright.Cube.setPosition(farrightx, farrighty);
 
 	// Set Initial Color
 	this->farleft.Cube.setFillColor(Color::Cyan);

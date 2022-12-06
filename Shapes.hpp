@@ -10,11 +10,25 @@ public:
 	Iblock();
 	void Iblock_draw(RenderWindow* window);
 
+	// Positions
+	float farleftx;
+	float farlefty;
+
+	float midleftx;
+	float midlefty;
+
+	float farrightx;
+	float farrighty;
+
+	float midrightx;
+	float midrighty;
+
 private:
 	Block farleft;
 	Block midleft;
 	Block farright;
 	Block midright;
+
 };
 
 // J Block
