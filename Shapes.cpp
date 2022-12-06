@@ -1,42 +1,42 @@
 #include "Shapes.hpp"
 
-Iblock::Iblock()
-{// Assign Values to Positions
-	farleftx = 0.f;
-	farlefty = 0.f;
-	midleftx = 30.f;
-	midlefty = 0.f;
-	midrightx = 60.f;
-	midrighty = 0.f;
-	farrightx = 90.f;
-	farrighty = 0.f;
+// Parent Shape Constructor
+ParentShape::ParentShape(float newp1x, float newp1y, float newp2x, float newp2y, 
+	float newp3x, float newp3y, float newp4x, float newp4y)
+{
+	using std::cout;
+	using std::endl;
+	cout << "in parent constructor" << endl;
 
-	// Set Initial Position
-	this->farleft.Cube.setPosition(farleftx, farlefty);
-	this->midleft.Cube.setPosition(midleftx, midlefty);
-	this->midright.Cube.setPosition(midrightx, midrighty);
-	this->farright.Cube.setPosition(farrightx, farrighty);
-	// Set Initial Color
-	this->farleft.Cube.setFillColor(Color::Cyan);
-	this->farleft.Cube.setOutlineColor(Color::Blue);
-
-	this->midleft.Cube.setFillColor(Color::Cyan);
-	this->midleft.Cube.setOutlineColor(Color::Blue);
-
-	this->midright.Cube.setFillColor(Color::Cyan);
-	this->midright.Cube.setOutlineColor(Color::Blue);
-
-	this->farright.Cube.setFillColor(Color::Cyan);
-	this->farright.Cube.setOutlineColor(Color::Blue);
-
+	// Assigns the default values for each shape to the parent shape values
+	point1x = newp1x;
+	point1y = newp1y;
+	point2x = newp2x;
+	point2y = newp2y;
+	point3x = newp3x;
+	point3y = newp3y;
+	point4x = newp4x;
+	point4y = newp4y;
+	this->point1.Cube.setPosition(point1x, point1y);
+	this->point2.Cube.setPosition(point2x, point2y);
+	this->point3.Cube.setPosition(point3x, point3y);
+	this->point4.Cube.setPosition(point4x, point4y);
 }
 
-void Iblock::Iblock_draw(RenderWindow* window)
+void ParentShape::ParentDraw(RenderWindow* window)
 {
-	window->draw(farleft.Cube);
-	window->draw(midleft.Cube);
-	window->draw(midright.Cube);
-	window->draw(farright.Cube);
+	window->draw(point1.Cube);
+	window->draw(point2.Cube);
+	window->draw(point3.Cube);
+	window->draw(point4.Cube);
+} 
+
+void Iblock::Draw(RenderWindow* window)
+{
+	window->draw(point1.Cube);
+	window->draw(point2.Cube);
+	window->draw(point3.Cube);
+	window->draw(point4.Cube);
 }
 
 Jblock::Jblock()

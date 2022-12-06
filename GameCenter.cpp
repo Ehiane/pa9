@@ -85,7 +85,7 @@ void Game::render() {
 		}
 	}
 
-	//testIblock.Iblock_draw(this->window);
+	testIblock.Iblock_draw(this->window);
 	//testJblock.Jblock_draw(this->window);
 	//testLblock.Lblock_draw(this->window);
 	//testOblock.Oblock_draw(this->window);

@@ -1,33 +1,46 @@
 #pragma once
 #include "Block.hpp"
 
-// I Block
-
-class Iblock
+// Base Shape Class
+class ParentShape
 {
 public:
-	Iblock();
-	void Iblock_draw(RenderWindow* window);
+	ParentShape(float newp1x, float newp1y, float newp2x, float newp2y,
+		float newp3x, float newp3y, float newp4x, float newp4y);
+	void ParentDraw(RenderWindow* window);
 
-	// Positions
-	float farleftx;
-	float farlefty;
+	Block point1;
+	Block point2;
+	Block point3;
+	Block point4;
 
-	float midleftx;
-	float midlefty;
+	float point1x;
+	float point1y;
+	float point2x;
+	float point2y;
+	float point3x;
+	float point3y;
+	float point4x;
+	float point4y;
+};
 
-	float farrightx;
-	float farrighty;
+// I Block
 
-	float midrightx;
-	float midrighty;
-
-private:
-	Block farleft;
-	Block midleft;
-	Block farright;
-	Block midright;
-
+class Iblock : public ParentShape
+{
+public:
+	Iblock(float newfarrightx = 0.f, float newfarrighty = 0.f, float newmidrightx = 30.f,
+		float newmidrighty = 0.f, float newmidleftx = 60.f, float newmidlefty = 0.f,
+		float newfarleftx = 90.f, float newfarlefty = 0.f) : 
+		ParentShape(newfarrightx, newfarrighty, newmidrightx, newmidrighty,
+			newmidleftx, newmidlefty, newfarleftx, newfarlefty)
+	{
+		//farright = point1;
+		//midright = point2;
+		//midleft = point3;
+		//farleft = point4;
+	};
+	void Draw(RenderWindow* window);
 };
 
 // J Block
