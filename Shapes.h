@@ -142,6 +142,18 @@ public:
 	Tblock();
 	void Tblock_draw(RenderWindow* window);
 
+	float topmiddlex;
+	float topmiddley;
+
+	float bottommiddlex;
+	float bottommiddley;
+
+	float bottomrightx;
+	float bottomrighty;
+
+	float bottomleftx;
+	float bottomlefty;
+
 private:
 	Block topmiddle;
 	Block bottommiddle;
