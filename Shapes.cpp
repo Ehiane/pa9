@@ -194,11 +194,21 @@ void Tblock::Tblock_draw(RenderWindow* window)
 
 Zblock::Zblock()
 {
+	// Assign Values to Positions
+	topmiddlex = 30.f;
+	topmiddley = 0.f;
+	bottommiddlex = 30.f;
+	bottommiddley = 30.f;
+	bottomrightx = 60.f;
+	bottomrighty = 30.f;
+	topleftx = 0.f;
+	toplefty = 0.f;
+
 	// Set Initial Position
-	this->topmiddle.Cube.setPosition(30.f, 0.f);
-	this->bottommiddle.Cube.setPosition(30.f, 30.f);
-	this->bottomright.Cube.setPosition(60.f, 30.f);
-	this->topleft.Cube.setPosition(0.f, 0.f);
+	this->topmiddle.Cube.setPosition(topmiddlex, topmiddley);
+	this->bottommiddle.Cube.setPosition(bottommiddlex, bottommiddley);
+	this->bottomright.Cube.setPosition(bottomrightx, bottomrighty);
+	this->topleft.Cube.setPosition(topleftx, toplefty);
 
 	// Set Initial Color
 	this->topmiddle.Cube.setFillColor(Color::Red);

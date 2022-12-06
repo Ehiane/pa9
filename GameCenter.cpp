@@ -26,7 +26,7 @@ void Game::update() {
 
 
 	//relative to game window:
-	std::cout << "Mouse Pos: " << Mouse::getPosition(*this->window).x << Mouse::getPosition(*this->window).y << "\n";
+	//std::cout << "Mouse Pos: " << Mouse::getPosition(*this->window).x << Mouse::getPosition(*this->window).y << "\n";
 }
 
 void Game::pollEvents() {
@@ -85,8 +85,7 @@ void Game::render() {
 		}
 	}
 
-	//testJblock.Jblock_draw(this->window);
-	testIblock.Iblock_draw(this->window);
+	//testIblock.Iblock_draw(this->window);
 	//testJblock.Jblock_draw(this->window);
 	//testLblock.Lblock_draw(this->window);
 	//testOblock.Oblock_draw(this->window);

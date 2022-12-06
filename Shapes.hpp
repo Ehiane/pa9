@@ -112,6 +112,19 @@ public:
 	Zblock();
 	void Zblock_draw(RenderWindow* window);
 
+	// Positions
+	float topmiddlex;
+	float topmiddley;
+
+	float bottommiddlex;
+	float bottommiddley;
+
+	float bottomrightx;
+	float bottomrighty;
+
+	float topleftx;
+	float toplefty;
+
 private:
 	Block topmiddle;
 	Block bottommiddle;
