@@ -1,12 +1,11 @@
-#include "GameCenter.h"
+#include "GameCenter.hpp"
 
 
 Game::Game() {
 
 	this->initVariables();
 	this->initWindows();
-	this->initEnemies();
-
+	//this->initEnemies();
 }
 
 Game::~Game() {
@@ -70,7 +69,7 @@ void Game::render() {
 	//this->window->clear(Color::Color(192,192,192)); //Silver Grey
 
 	this->window->clear(); //black
-
+	
 	/*
 	GAMEPLAY GRID- WILL CHANGE POSITIONS BASED ON SIZE OF THE WINDOW
 	*/
@@ -85,10 +84,15 @@ void Game::render() {
 			this->window->draw(cell);
 		}
 	}
-	
 
-	//Draw Game here//
-	this->window->draw(this->enemy);
+	//testJblock.Jblock_draw(this->window);
+	testIblock.Iblock_draw(this->window);
+	//testJblock.Jblock_draw(this->window);
+	//testLblock.Lblock_draw(this->window);
+	//testOblock.Oblock_draw(this->window);
+	//testSblock.Sblock_draw(this->window);
+	//testTblock.Tblock_draw(this->window);
+	//testZblock.Zblock_draw(this->window);
 
 	this->window->display();
 }
@@ -113,17 +117,7 @@ void Game::initWindows() {
 	this->window->setFramerateLimit(144);
 }
 
-void Game::initEnemies() {
+void Game::initEnemies()
+{
 
-
-
-	this->enemy.setPosition(10.f, 10.f); //(pixel in float ,pixel in float)
-	this->enemy.setPosition(10.f, 10.f); //(pixel in float ,pixel in float)
-
-
-	this->enemy.setScale(Vector2f(0.5f, 0.5f));
-	this->enemy.setSize(Vector2f(100.f, 100.f)); //100.f confirms tht its a float value, if not a float, there will be issues.
-	this->enemy.setFillColor(Color::Cyan);
-	this->enemy.setOutlineColor(Color::Green);
-	this->enemy.setOutlineThickness(1.f);
 }

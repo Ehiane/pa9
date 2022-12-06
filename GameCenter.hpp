@@ -10,7 +10,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
 using namespace sf;
-
+#include "Shapes.hpp"
 
 class Game {
 
@@ -24,7 +24,7 @@ public:
 	void update();
 	void pollEvents();
 	void render();
-	
+
 
 
 	//Accessors:
@@ -42,6 +42,13 @@ private:
 	VideoMode videMode;
 
 	//Game Objects:
-	RectangleShape enemy;
+	//RectangleShape enemy;
+	Iblock testIblock;
+	Jblock testJblock;
+	Oblock testOblock;
+	Zblock testZblock;
+	Sblock testSblock;
+	Lblock testLblock;
+	Tblock testTblock;
 
 };
