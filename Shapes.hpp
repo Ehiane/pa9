@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Block.hpp"
 
 // I Block
@@ -9,6 +8,7 @@ class Iblock
 public:
 	Iblock();
 	void Iblock_draw(RenderWindow* window);
+
 	// Positions
 	float farleftx;
 	float farlefty;
@@ -27,10 +27,10 @@ private:
 	Block midleft;
 	Block farright;
 	Block midright;
+
 };
 
 // J Block
-
 class Jblock
 {
 public:
@@ -73,7 +73,7 @@ public:
 	float middley;
 	float rightx;
 	float righty;
-	
+
 
 private:
 	Block topright;
@@ -81,7 +81,6 @@ private:
 	Block middle;
 	Block right;
 };
-
 // O Block
 
 class Oblock
@@ -89,6 +88,18 @@ class Oblock
 public:
 	Oblock();
 	void Oblock_draw(RenderWindow* window);
+
+	float toprightx;
+	float toprighty;
+
+	float topleftx;
+	float toplefty;
+
+	float bottomrightx;
+	float bottomrighty;
+
+	float bottomleftx;
+	float bottomlefty;
 
 private:
 	Block topright;
@@ -102,6 +113,18 @@ class Sblock
 public:
 	Sblock();
 	void Sblock_draw(RenderWindow* window);
+
+	float topmiddlex;
+	float topmiddley;
+
+	float bottommiddlex;
+	float bottommiddley;
+
+	float toprightx;
+	float toprighty;
+
+	float bottomleftx;
+	float bottomlefty;
 
 private:
 	Block topmiddle;
@@ -118,6 +141,18 @@ public:
 	Tblock();
 	void Tblock_draw(RenderWindow* window);
 
+	float topmiddlex;
+	float topmiddley;
+
+	float bottommiddlex;
+	float bottommiddley;
+
+	float bottomrightx;
+	float bottomrighty;
+
+	float bottomleftx;
+	float bottomlefty;
+
 private:
 	Block topmiddle;
 	Block bottommiddle;
@@ -133,10 +168,22 @@ public:
 	Zblock();
 	void Zblock_draw(RenderWindow* window);
 
+	// Positions
+	float topmiddlex;
+	float topmiddley;
+
+	float bottommiddlex;
+	float bottommiddley;
+
+	float bottomrightx;
+	float bottomrighty;
+
+	float topleftx;
+	float toplefty;
+
 private:
 	Block topmiddle;
 	Block bottommiddle;
 	Block bottomright;
 	Block topleft;
 };
-
