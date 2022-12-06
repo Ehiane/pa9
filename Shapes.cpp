@@ -3,10 +3,10 @@
 Iblock::Iblock()
 {
 	// Set Initial Position
-	this->farleft.Cube.setPosition(10.f, 10.f);
-	this->midleft.Cube.setPosition(60.f, 10.f);
-	this->midright.Cube.setPosition(110.f, 10.f);
-	this->farright.Cube.setPosition(160.f, 10.f);
+	this->farleft.Cube.setPosition(0.f, 0.f);
+	this->midleft.Cube.setPosition(30.f, 0.f);
+	this->midright.Cube.setPosition(60.f, 0.f);
+	this->farright.Cube.setPosition(90.f, 0.f);
 
 	// Set Initial Color
 	this->farleft.Cube.setFillColor(Color::Cyan);
@@ -34,10 +34,10 @@ void Iblock::Iblock_draw(RenderWindow* window)
 Jblock::Jblock()
 {
 	// Set Initial Position
-	this->topleft.Cube.setPosition(10.f, 10.f);
-	this->left.Cube.setPosition(10.f, 60.f);
-	this->middle.Cube.setPosition(60.f, 60.f);
-	this->right.Cube.setPosition(110.f, 60.f);
+	this->topleft.Cube.setPosition(0.f, 0.f);
+	this->left.Cube.setPosition(0.f, 30.f);
+	this->middle.Cube.setPosition(30.f, 30.f);
+	this->right.Cube.setPosition(60.f, 30.f);
 
 	// Set Initial Color
 	this->topleft.Cube.setFillColor(Color::Blue);
@@ -65,10 +65,10 @@ void Jblock::Jblock_draw(RenderWindow* window)
 Lblock::Lblock()
 {
 	// Set Initial Position
-	this->topright.Cube.setPosition(110.f, 10.f);
-	this->left.Cube.setPosition(10.f, 60.f);
-	this->middle.Cube.setPosition(60.f, 60.f);
-	this->right.Cube.setPosition(110.f, 60.f);
+	this->topright.Cube.setPosition(60.f, 0.f);
+	this->left.Cube.setPosition(0.f, 30.f);
+	this->middle.Cube.setPosition(30.f, 30.f);
+	this->right.Cube.setPosition(60.f, 30.f);
 
 	// Set Initial Color
 	this->topright.Cube.setFillColor(Color::Magenta);
@@ -95,10 +95,10 @@ void Lblock::Lblock_draw(RenderWindow* window)
 Oblock::Oblock()
 {
 	// Set Initial Position
-	this->topleft.Cube.setPosition(10.f, 10.f);
-	this->topright.Cube.setPosition(60.f, 10.f);
-	this->bottomleft.Cube.setPosition(10.f, 60.f);
-	this->bottomright.Cube.setPosition(60.f, 60.f);
+	this->topleft.Cube.setPosition(0.f, 0.f);
+	this->topright.Cube.setPosition(30.f, 0.f);
+	this->bottomleft.Cube.setPosition(0.f, 30.f);
+	this->bottomright.Cube.setPosition(30.f, 30.f);
 
 	// Set Initial Color
 	this->topleft.Cube.setFillColor(Color::Yellow);
@@ -125,10 +125,10 @@ void Oblock::Oblock_draw(RenderWindow* window)
 Sblock::Sblock()
 {
 	// Set Initial Position
-	this->topmiddle.Cube.setPosition(60.f, 10.f);
-	this->bottommiddle.Cube.setPosition(60.f, 60.f);
-	this->topright.Cube.setPosition(110.f, 10.f);
-	this->bottomleft.Cube.setPosition(10.f, 60.f);
+	this->topmiddle.Cube.setPosition(30.f, 0.f);
+	this->bottommiddle.Cube.setPosition(30.f, 30.f);
+	this->topright.Cube.setPosition(60.f, 0.f);
+	this->bottomleft.Cube.setPosition(0.f, 30.f);
 
 	// Set Initial Color
 	this->topmiddle.Cube.setFillColor(Color::Green);
@@ -155,10 +155,10 @@ void Sblock::Sblock_draw(RenderWindow* window)
 Tblock::Tblock()
 {
 	// Set Initial Position
-	this->topmiddle.Cube.setPosition(60.f, 10.f);
-	this->bottommiddle.Cube.setPosition(60.f, 60.f);
-	this->bottomright.Cube.setPosition(110.f, 60.f);
-	this->bottomleft.Cube.setPosition(10.f, 60.f);
+	this->topmiddle.Cube.setPosition(30.f, 0.f);
+	this->bottommiddle.Cube.setPosition(30.f, 30.f);
+	this->bottomright.Cube.setPosition(60.f, 30.f);
+	this->bottomleft.Cube.setPosition(0.f, 30.f);
 
 	// Set Initial Color
 	this->topmiddle.Cube.setFillColor(Color::Magenta);
@@ -185,10 +185,10 @@ void Tblock::Tblock_draw(RenderWindow* window)
 Zblock::Zblock()
 {
 	// Set Initial Position
-	this->topmiddle.Cube.setPosition(60.f, 10.f);
-	this->bottommiddle.Cube.setPosition(60.f, 60.f);
-	this->bottomright.Cube.setPosition(110.f, 60.f);
-	this->topleft.Cube.setPosition(10.f, 10.f);
+	this->topmiddle.Cube.setPosition(30.f, 0.f);
+	this->bottommiddle.Cube.setPosition(30.f, 30.f);
+	this->bottomright.Cube.setPosition(60.f, 30.f);
+	this->topleft.Cube.setPosition(0.f, 0.f);
 
 	// Set Initial Color
 	this->topmiddle.Cube.setFillColor(Color::Red);
