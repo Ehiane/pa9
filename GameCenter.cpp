@@ -69,7 +69,7 @@ void Game::render() {
 	//this->window->clear(Color::Color(192,192,192)); //Silver Grey
 
 	this->window->clear(); //black
-	
+
 	/*
 	GAMEPLAY GRID- WILL CHANGE POSITIONS BASED ON SIZE OF THE WINDOW
 	*/
@@ -85,13 +85,13 @@ void Game::render() {
 		}
 	}
 
-	testIblock.Iblock_draw(this->window);
-	//testJblock.Jblock_draw(this->window);
-	//testLblock.Lblock_draw(this->window);
-	//testOblock.Oblock_draw(this->window);
-	//testSblock.Sblock_draw(this->window);
-	//testTblock.Tblock_draw(this->window);
-	//testZblock.Zblock_draw(this->window);
+	//testIblock.ParentShape::Draw(this->window);
+	//testJblock.ParentShape::Draw(this->window);
+	//testLblock.ParentShape::Draw(this->window);
+	//testOblock.ParentShape::Draw(this->window);
+	//testSblock.ParentShape::Draw(this->window);
+	//testTblock.ParentShape::Draw(this->window);
+	//testZblock.ParentShape::Draw(this->window);
 
 	this->window->display();
 }

@@ -7,7 +7,7 @@ class ParentShape
 public:
 	ParentShape(float newp1x, float newp1y, float newp2x, float newp2y,
 		float newp3x, float newp3y, float newp4x, float newp4y);
-	void ParentDraw(RenderWindow* window);
+	void Draw(RenderWindow* window);
 
 	Block point1;
 	Block point2;
@@ -31,7 +31,7 @@ class Iblock : public ParentShape
 public:
 	Iblock(float newfarrightx = 0.f, float newfarrighty = 0.f, float newmidrightx = 30.f,
 		float newmidrighty = 0.f, float newmidleftx = 60.f, float newmidlefty = 0.f,
-		float newfarleftx = 90.f, float newfarlefty = 0.f) : 
+		float newfarleftx = 90.f, float newfarlefty = 0.f) :
 		ParentShape(newfarrightx, newfarrighty, newmidrightx, newmidrighty,
 			newmidleftx, newmidlefty, newfarleftx, newfarlefty)
 	{
@@ -39,164 +39,138 @@ public:
 		//midright = point2;
 		//midleft = point3;
 		//farleft = point4;
+		point1.Cube.setFillColor(Color::Cyan);
+		point2.Cube.setFillColor(Color::Cyan);
+		point3.Cube.setFillColor(Color::Cyan);
+		point4.Cube.setFillColor(Color::Cyan);
 	};
-	void Draw(RenderWindow* window);
 };
 
 // J Block
-class Jblock
+class Jblock : public ParentShape
 {
 public:
-	Jblock();
-	void Jblock_draw(RenderWindow* window);
-
-	float topleftx;
-	float toplefty;
-
-	float leftx;
-	float lefty;
-
-	float middlex;
-	float middley;
-
-	float rightx;
-	float righty;
-
-
-private:
-	Block topleft;
-	Block left;
-	Block middle;
-	Block right;
+	Jblock(float newtopleftx = 0.f, float newtoplefty = 0.f, float newmiddlex = 30.f,
+		float newmiddley = 30.f, float newleftx = 0.f, float newlefty = 30.f,
+		float newrightx = 60.f, float newrighty = 30.f) :
+		ParentShape(newtopleftx, newtoplefty, newmiddlex, newmiddley,
+			newleftx, newlefty, newrightx, newrighty)
+	{
+		//topleft = point1;
+		//middle = point2;
+		//left = point3;
+		//right = point4;
+		point1.Cube.setFillColor(Color::Magenta);
+		point2.Cube.setFillColor(Color::Magenta);
+		point3.Cube.setFillColor(Color::Magenta);
+		point4.Cube.setFillColor(Color::Magenta);
+	};
 };
 
 // L Block
 
-class Lblock
+class Lblock : public ParentShape
 {
 public:
-	Lblock();
-	void Lblock_draw(RenderWindow* window);
-
-	float toprightx;
-	float toprighty;
-	float leftx;
-	float lefty;
-	float middlex;
-	float middley;
-	float rightx;
-	float righty;
-
-
-private:
-	Block topright;
-	Block left;
-	Block middle;
-	Block right;
+	Lblock(float newtoprightx = 60.f, float newtoprighty = 0.f, float newmiddlex = 30.f,
+		float newmiddley = 30.f, float newleftx = 0.f, float newlefty = 30.f,
+		float newrightx = 60.f, float newrighty = 30.f) :
+		ParentShape(newtoprightx, newtoprighty, newmiddlex, newmiddley,
+			newleftx, newlefty, newrightx, newrighty)
+	{
+		//topright = point1;
+		//middle = point2;
+		//left = point3;
+		//right = point4;
+		point1.Cube.setFillColor(Color::Blue);
+		point2.Cube.setFillColor(Color::Blue);
+		point3.Cube.setFillColor(Color::Blue);
+		point4.Cube.setFillColor(Color::Blue);
+	};
 };
+
 // O Block
 
-class Oblock
+class Oblock : public ParentShape
 {
 public:
-	Oblock();
-	void Oblock_draw(RenderWindow* window);
-
-	float toprightx;
-	float toprighty;
-
-	float topleftx;
-	float toplefty;
-
-	float bottomrightx;
-	float bottomrighty;
-
-	float bottomleftx;
-	float bottomlefty;
-
-private:
-	Block topright;
-	Block topleft;
-	Block bottomright;
-	Block bottomleft;
+	Oblock(float newtopleftx = 0.f, float newtoplefty = 0.f, float newbottomleftx = 0.f,
+		float newbottomlefty = 30.f, float newbottomrightx = 30.f, float newbottomrighty = 30.f,
+		float newtoprightx = 30.f, float newtoprighty = 0.f) :
+		ParentShape(newtoprightx, newtoprighty, newbottomrightx, newbottomrighty,
+			newbottomleftx, newbottomlefty, newtopleftx, newtoplefty)
+	{
+		//topright = point1;
+		//bottomright = point2;
+		//bottomleft = point3;
+		//topleft = point4;
+		point1.Cube.setFillColor(Color::Yellow);
+		point2.Cube.setFillColor(Color::Yellow);
+		point3.Cube.setFillColor(Color::Yellow);
+		point4.Cube.setFillColor(Color::Yellow);
+	};
 };
 
-class Sblock
+class Sblock : public ParentShape
 {
 public:
-	Sblock();
-	void Sblock_draw(RenderWindow* window);
-
-	float topmiddlex;
-	float topmiddley;
-
-	float bottommiddlex;
-	float bottommiddley;
-
-	float toprightx;
-	float toprighty;
-
-	float bottomleftx;
-	float bottomlefty;
-
-private:
-	Block topmiddle;
-	Block bottommiddle;
-	Block topright;
-	Block bottomleft;
+	Sblock(float newtoprightx = 60.f, float newtoprighty = 0.f, float newtopmiddlex = 30.f,
+		float newtopmiddley = 0.f, float newbottommiddlex = 30.f, float newbottommiddley = 30.f,
+		float newbottomleftx = 0.f, float newbottomlefty = 30.f) :
+		ParentShape(newtoprightx, newtoprighty, newtopmiddlex, newtopmiddley,
+			newbottommiddlex, newbottommiddley, newbottomleftx, newbottomlefty)
+	{
+		//topright = point1;
+		//topmiddle = point2;
+		//bottommiddle = point3;
+		//bottomleft = point4;
+		point1.Cube.setFillColor(Color::Green);
+		point2.Cube.setFillColor(Color::Green);
+		point3.Cube.setFillColor(Color::Green);
+		point4.Cube.setFillColor(Color::Green);
+	};
 };
 
 // T Block
 
-class Tblock
+class Tblock :public ParentShape
 {
 public:
-	Tblock();
-	void Tblock_draw(RenderWindow* window);
-
-	float topmiddlex;
-	float topmiddley;
-
-	float bottommiddlex;
-	float bottommiddley;
-
-	float bottomrightx;
-	float bottomrighty;
-
-	float bottomleftx;
-	float bottomlefty;
-
-private:
-	Block topmiddle;
-	Block bottommiddle;
-	Block bottomright;
-	Block bottomleft;
+	Tblock(float newtopmiddlex = 30.f, float newtopmiddley = 0.f, float newbottommiddlex = 30.f,
+		float newbottommiddley = 30.f, float newbottomleftx = 0.f, float newbottomlefty = 30.f,
+		float newbottomrightx = 60.f, float newbottomrighty = 30.f) :
+		ParentShape(newtopmiddlex, newtopmiddley, newbottommiddlex, newbottommiddley,
+			newbottomleftx, newbottomlefty, newbottomrightx, newbottomrighty)
+	{
+		//topmiddle = point1;
+		//bottommiddle = point2;
+		//bottomleft = point3;
+		//bottomright = point4;
+		point1.Cube.setFillColor(Color::Magenta);
+		point2.Cube.setFillColor(Color::Magenta);
+		point3.Cube.setFillColor(Color::Magenta);
+		point4.Cube.setFillColor(Color::Magenta);
+	};
 };
 
 // Z Block
 
-class Zblock
+class Zblock : public ParentShape
 {
 public:
-	Zblock();
-	void Zblock_draw(RenderWindow* window);
-
-	// Positions
-	float topmiddlex;
-	float topmiddley;
-
-	float bottommiddlex;
-	float bottommiddley;
-
-	float bottomrightx;
-	float bottomrighty;
-
-	float topleftx;
-	float toplefty;
-
-private:
-	Block topmiddle;
-	Block bottommiddle;
-	Block bottomright;
-	Block topleft;
+	Zblock(float newtopleftx = 60.f, float newtoplefty = 0.f, float newtopmiddlex = 30.f,
+		float newtopmiddley = 0.f, float newbottommiddlex = 30.f, float newbottommiddley = 30.f,
+		float newbottomrightx = 0.f, float newbottomrighty = 30.f) :
+		ParentShape(newtopleftx, newtoplefty, newtopmiddlex, newtopmiddley,
+			newbottommiddlex, newbottommiddley, newbottomrightx, newbottomrighty)
+	{
+		//topleft = point1;
+		//topmiddle = point2;
+		//bottommiddle = point3;
+		//bottomright = point4;
+		point1.Cube.setFillColor(Color::Red);
+		point2.Cube.setFillColor(Color::Red);
+		point3.Cube.setFillColor(Color::Red);
+		point4.Cube.setFillColor(Color::Red);
+	};
 };
