@@ -30,3 +30,32 @@ void ParentShape::Draw(RenderWindow* window)
 	window->draw(point3.Cube);
 	window->draw(point4.Cube);
 }
+
+void ParentShape::MoveLeft()
+{
+	point1x -= 30.f;
+	point2x -= 30.f;
+	point3x -= 30.f;
+	point4x -= 30.f;
+}
+
+void ParentShape::MoveRight()
+{
+	point1x += 30.f;
+	point2x += 30.f;
+	point3x += 30.f;
+	point4x += 30.f;
+}
+
+void ParentShape::MoveDown()
+{
+	point1y += 30.f;
+	point2y += 30.f;
+	point3y += 30.f;
+	point4y += 30.f;
+}
+
+void ParentShape::Rotate()
+{
+	// to do!
+}

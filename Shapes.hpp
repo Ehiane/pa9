@@ -9,11 +9,21 @@ public:
 		float newp3x, float newp3y, float newp4x, float newp4y);
 	void Draw(RenderWindow* window);
 
+	// Movement Functions
+	void MoveLeft();
+	void MoveRight();
+	void MoveDown();
+
+	// Rotate Function
+	void Rotate();
+
+	// Block Points
 	Block point1;
 	Block point2;
 	Block point3;
 	Block point4;
 
+	// Block Point Locations
 	float point1x;
 	float point1y;
 	float point2x;
@@ -29,9 +39,9 @@ public:
 class Iblock : public ParentShape
 {
 public:
-	Iblock(float newfarrightx = 0.f, float newfarrighty = 0.f, float newmidrightx = 30.f,
-		float newmidrighty = 0.f, float newmidleftx = 60.f, float newmidlefty = 0.f,
-		float newfarleftx = 90.f, float newfarlefty = 0.f) :
+	Iblock(float newfarrightx = 90.f, float newfarrighty = 0.f, float newmidrightx = 120.f,
+		float newmidrighty = 0.f, float newmidleftx = 150.f, float newmidlefty = 0.f,
+		float newfarleftx = 180.f, float newfarlefty = 0.f) :
 		ParentShape(newfarrightx, newfarrighty, newmidrightx, newmidrighty,
 			newmidleftx, newmidlefty, newfarleftx, newfarlefty)
 	{
@@ -50,9 +60,9 @@ public:
 class Jblock : public ParentShape
 {
 public:
-	Jblock(float newtopleftx = 0.f, float newtoplefty = 0.f, float newmiddlex = 30.f,
-		float newmiddley = 30.f, float newleftx = 0.f, float newlefty = 30.f,
-		float newrightx = 60.f, float newrighty = 30.f) :
+	Jblock(float newtopleftx = 90.f, float newtoplefty = 0.f, float newmiddlex = 120.f,
+		float newmiddley = 30.f, float newleftx = 90.f, float newlefty = 30.f,
+		float newrightx = 150.f, float newrighty = 30.f) :
 		ParentShape(newtopleftx, newtoplefty, newmiddlex, newmiddley,
 			newleftx, newlefty, newrightx, newrighty)
 	{
@@ -72,9 +82,9 @@ public:
 class Lblock : public ParentShape
 {
 public:
-	Lblock(float newtoprightx = 60.f, float newtoprighty = 0.f, float newmiddlex = 30.f,
-		float newmiddley = 30.f, float newleftx = 0.f, float newlefty = 30.f,
-		float newrightx = 60.f, float newrighty = 30.f) :
+	Lblock(float newtoprightx = 150.f, float newtoprighty = 0.f, float newmiddlex = 120.f,
+		float newmiddley = 30.f, float newleftx = 90.f, float newlefty = 30.f,
+		float newrightx = 150.f, float newrighty = 30.f) :
 		ParentShape(newtoprightx, newtoprighty, newmiddlex, newmiddley,
 			newleftx, newlefty, newrightx, newrighty)
 	{
@@ -94,9 +104,9 @@ public:
 class Oblock : public ParentShape
 {
 public:
-	Oblock(float newtopleftx = 0.f, float newtoplefty = 0.f, float newbottomleftx = 0.f,
-		float newbottomlefty = 30.f, float newbottomrightx = 30.f, float newbottomrighty = 30.f,
-		float newtoprightx = 30.f, float newtoprighty = 0.f) :
+	Oblock(float newtopleftx = 120.f, float newtoplefty = 0.f, float newbottomleftx = 120.f,
+		float newbottomlefty = 30.f, float newbottomrightx = 150.f, float newbottomrighty = 30.f,
+		float newtoprightx = 150.f, float newtoprighty = 0.f) :
 		ParentShape(newtoprightx, newtoprighty, newbottomrightx, newbottomrighty,
 			newbottomleftx, newbottomlefty, newtopleftx, newtoplefty)
 	{
@@ -111,12 +121,14 @@ public:
 	};
 };
 
+// S Block
+
 class Sblock : public ParentShape
 {
 public:
-	Sblock(float newtoprightx = 60.f, float newtoprighty = 0.f, float newtopmiddlex = 30.f,
-		float newtopmiddley = 0.f, float newbottommiddlex = 30.f, float newbottommiddley = 30.f,
-		float newbottomleftx = 0.f, float newbottomlefty = 30.f) :
+	Sblock(float newtoprightx = 150.f, float newtoprighty = 0.f, float newtopmiddlex = 120.f,
+		float newtopmiddley = 0.f, float newbottommiddlex = 120.f, float newbottommiddley = 30.f,
+		float newbottomleftx = 90.f, float newbottomlefty = 30.f) :
 		ParentShape(newtoprightx, newtoprighty, newtopmiddlex, newtopmiddley,
 			newbottommiddlex, newbottommiddley, newbottomleftx, newbottomlefty)
 	{
@@ -136,9 +148,9 @@ public:
 class Tblock :public ParentShape
 {
 public:
-	Tblock(float newtopmiddlex = 30.f, float newtopmiddley = 0.f, float newbottommiddlex = 30.f,
-		float newbottommiddley = 30.f, float newbottomleftx = 0.f, float newbottomlefty = 30.f,
-		float newbottomrightx = 60.f, float newbottomrighty = 30.f) :
+	Tblock(float newtopmiddlex = 120.f, float newtopmiddley = 0.f, float newbottommiddlex = 120.f,
+		float newbottommiddley = 30.f, float newbottomleftx = 90.f, float newbottomlefty = 30.f,
+		float newbottomrightx = 150.f, float newbottomrighty = 30.f) :
 		ParentShape(newtopmiddlex, newtopmiddley, newbottommiddlex, newbottommiddley,
 			newbottomleftx, newbottomlefty, newbottomrightx, newbottomrighty)
 	{
@@ -158,9 +170,9 @@ public:
 class Zblock : public ParentShape
 {
 public:
-	Zblock(float newtopleftx = 60.f, float newtoplefty = 0.f, float newtopmiddlex = 30.f,
-		float newtopmiddley = 0.f, float newbottommiddlex = 30.f, float newbottommiddley = 30.f,
-		float newbottomrightx = 0.f, float newbottomrighty = 30.f) :
+	Zblock(float newtopleftx = 150.f, float newtoplefty = 0.f, float newtopmiddlex = 120.f,
+		float newtopmiddley = 0.f, float newbottommiddlex = 120.f, float newbottommiddley = 30.f,
+		float newbottomrightx = 90.f, float newbottomrighty = 30.f) :
 		ParentShape(newtopleftx, newtoplefty, newtopmiddlex, newtopmiddley,
 			newbottommiddlex, newbottommiddley, newbottomrightx, newbottomrighty)
 	{
