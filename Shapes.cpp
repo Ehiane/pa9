@@ -1,4 +1,4 @@
-#include "Shapes.hpp"
+#include "Shapes.h"
 
 // Parent Shape Constructor
 ParentShape::ParentShape(float newp1x, float newp1y, float newp2x, float newp2y,
@@ -53,9 +53,247 @@ void ParentShape::MoveDown()
 	point2y += 30.f;
 	point3y += 30.f;
 	point4y += 30.f;
+	this->point1.Cube.setPosition(point1x, point1y);
+	this->point2.Cube.setPosition(point2x, point2y);
+	this->point3.Cube.setPosition(point3x, point3y);
+	this->point4.Cube.setPosition(point4x, point4y);
+
 }
 
 void ParentShape::Rotate()
 {
-	// to do!
+	std::cout << "Rotate me!!!!!" << std::endl;
+	//no need for a rotate for the parent, it never makes an appearance
+}
+
+void Iblock::rotate() {
+	if (point1y == point2y) { //if the block is horizontal
+		point1x = point3x; //orienting the block around point 3
+		point1y = point3y + 60;
+		point2x = point3x;
+		point2y = point3y + 30;
+		point4x = point3x;
+		point4y = point3y - 30;
+		this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+		this->point2.Cube.setPosition(point2x, point2y);
+		this->point4.Cube.setPosition(point4x, point4y);
+	}
+	else { // if the block is vertical
+		point1x = point3x - 60; //orient the block around point 3
+		point1y = point3y;
+		point2x = point3x - 30;
+		point2y = point3y;
+		point4x = point3x + 30;
+		point4y = point3y;
+		this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+		this->point2.Cube.setPosition(point2x, point2y);
+		this->point4.Cube.setPosition(point4x, point4y);
+	}
+}
+
+void Jblock::rotate() {
+	if (point3y == point4y) { //if the block is horizontal
+		if (point1y > point2y) { //if the tip of the j is above the rest of the block
+			point1x = point2x + 30; //rotate clockwise around the second cube
+			point1y = point2y - 30;
+			point3x = point2x;
+			point3y = point2y - 30;
+			point4x = point2x;
+			point4y = point2y + 30;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+		else { //if the tip is below the rest of the block
+			point1x = point2x - 30; //rotate clockwise around the second cube
+			point1y = point2y + 30;
+			point3x = point2x;
+			point3y = point2y + 30;
+			point4x = point2x;
+			point4y = point2y - 30;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+	}
+	else { // if the block is vertical
+		if (point1x > point2x) { //if the tip is to the left of the rest of the block
+			point1x = point2x - 30; //rotate clockwise around the second cube
+			point1y = point2y - 30;
+			point3x = point2x - 30;
+			point3y = point2y;
+			point4x = point2x + 30;
+			point4y = point2y;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+		else { //if the tip is to the right of the rest of the block
+			point1x = point2x + 30; //rotate clockwise around the second cube
+			point1y = point2y + 30;
+			point3x = point2x + 30;
+			point3y = point2y;
+			point4x = point2x - 30;
+			point4y = point2y;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+	}
+}
+
+void Lblock::rotate() {
+	if (point3y == point4y) { //if the block is horizontal
+		if (point1y > point2y) { //if the tip of the l is above the rest of the block
+			point1x = point2x + 30; //rotate clockwise around the second cube
+			point1y = point2y + 30;
+			point3x = point2x;
+			point3y = point2y - 30;
+			point4x = point2x;
+			point4y = point2y + 30;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+		else { //if the tip is below the rest of the block
+			point1x = point2x - 30; //rotate clockwise around the second cube
+			point1y = point2y - 30;
+			point3x = point2x;
+			point3y = point2y + 30;
+			point4x = point2x;
+			point4y = point2y - 30;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+	}
+	else { // if the block is vertical
+		if (point1x > point2x) { //if the tip is to the left of the rest of the block
+			point1x = point2x + 30; //rotate clockwise around the second cube
+			point1y = point2y - 30;
+			point3x = point2x - 30;
+			point3y = point2y;
+			point4x = point2x + 30;
+			point4y = point2y;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+		else { //if the tip is to the right of the rest of the block
+			point1x = point2x - 30; //rotate clockwise around the second cube
+			point1y = point2y + 30;
+			point3x = point2x + 30;
+			point3y = point2y;
+			point4x = point2x - 30;
+			point4y = point2y;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+	}
+}
+
+//void Oblock::rotate() {
+//	//no need for oblock rotation, it is symmetric from all directions
+//}
+
+void Sblock::rotate() {
+	if (point1y == point2y) { // if the s block is horizontal
+		point1x = point2x; //rotate cubes clockwise around second cube
+		point1y = point2y + 30;
+		point3x = point2x - 30;
+		point3y = point2y;
+		point4x = point2x - 30;
+		point4y = point2y - 30;
+		this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+		this->point3.Cube.setPosition(point3x, point3y);
+		this->point4.Cube.setPosition(point4x, point4y);
+	}
+	else { //if the block is vertical
+		point1x = point2x + 30; //rotate cubes clockwise around second cube
+		point1y = point2y;
+		point3x = point2x;
+		point3y = point2y + 30;
+		point4x = point2x - 30;
+		point4y = point2y + 30;
+		this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+		this->point3.Cube.setPosition(point3x, point3y);
+		this->point4.Cube.setPosition(point4x, point4y);
+	}
+}
+
+void Zblock::rotate() {
+	if (point1y == point2y) { // if the z block is horizontal
+		point1x = point2x; //rotate cubes clockwise around second cube
+		point1y = point2y - 30;
+		point3x = point2x - 30;
+		point3y = point2y;
+		point4x = point2x - 30;
+		point4y = point2y + 30;
+		this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+		this->point3.Cube.setPosition(point3x, point3y);
+		this->point4.Cube.setPosition(point4x, point4y);
+	}
+	else { //if the block is vertical
+		point1x = point2x - 30; //rotate cubes clockwise around second cube
+		point1y = point2y;
+		point3x = point2x;
+		point3y = point2y + 30;
+		point4x = point2x + 30;
+		point4y = point2y + 30;
+		this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+		this->point3.Cube.setPosition(point3x, point3y);
+		this->point4.Cube.setPosition(point4x, point4y);
+	}
+}
+
+void Tblock::rotate() {
+	if (point1x == point2x) { //if the t block is horizontal
+		if (point1y < point2y) { //if the bottom of the t is above the rest
+			point1x = point2x + 30;
+			point1y = point2y;
+			point3x = point2x;
+			point3y = point2y - 30;
+			point4x = point2x;
+			point4y = point2y + 30;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+		else { //if the bottom of the t is below the rest
+			point1x = point2x - 30;
+			point1y = point2y;
+			point3x = point2x;
+			point3y = point2y + 30;
+			point4x = point2x;
+			point4y = point2y - 30;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+	}
+	else { //if the t block is vertical
+		if (point1x > point2x) { //if the tip of the t is to the right of the rest
+			point1x = point2x;
+			point1y = point2y + 30;
+			point3x = point2x + 30;
+			point3y = point2y;
+			point4x = point2x - 30;
+			point4y = point2y;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+		else { //if the tip of the t is to the left of the rest
+			point1x = point2x;
+			point1y = point2y - 30;
+			point3x = point2x - 30;
+			point3y = point2y;
+			point4x = point2x + 30;
+			point4y = point2y;
+			this->point1.Cube.setPosition(point1x, point1y); //change positions of cubes
+			this->point3.Cube.setPosition(point3x, point3y);
+			this->point4.Cube.setPosition(point4x, point4y);
+		}
+	}
 }
