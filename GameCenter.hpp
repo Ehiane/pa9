@@ -11,6 +11,7 @@
 #include <SFML/Network.hpp>
 using namespace sf;
 #include "Shapes.hpp"
+#include "linkedlist.hpp"
 
 class Game {
 
@@ -30,6 +31,16 @@ public:
 	//Accessors:
 	const bool running() const;
 
+	ParentShape genericshape = *(new Iblock);
+
+	/*Iblock testIblock;
+	Jblock testJblock;
+	Oblock testOblock;
+	Zblock testZblock;
+	Sblock testSblock;
+	Lblock testLblock;
+	Tblock testTblock;*/
+
 private:
 	//Private Functions
 	void initVariables();
@@ -41,14 +52,8 @@ private:
 	Event event;
 	VideoMode videMode;
 
+	ShapeList gameShapeList;
+
 	//Game Objects:
 	//RectangleShape enemy;
-	Iblock testIblock;
-	Jblock testJblock;
-	Oblock testOblock;
-	Zblock testZblock;
-	Sblock testSblock;
-	Lblock testLblock;
-	Tblock testTblock;
-
 };

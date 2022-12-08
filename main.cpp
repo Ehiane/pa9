@@ -1,4 +1,6 @@
 #include"GameCenter.hpp"
+#include "Block.hpp"
+
 int main()
 {
 
@@ -13,6 +15,7 @@ int main()
 
 		//render:
 		runGame.render();
+
 	}
 
 	//END OF APPLICATION:

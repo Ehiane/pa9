@@ -7,15 +7,22 @@ class ParentShape
 public:
 	ParentShape(float newp1x, float newp1y, float newp2x, float newp2y,
 		float newp3x, float newp3y, float newp4x, float newp4y);
+	/*ParentShape(ParentShape& copyParentShape) {
+		point1 = copyParentShape.point1;
+		point2 = copyParentShape.point2;
+		point3 = copyParentShape.point3;
+		point4 = copyParentShape.point4;
+	};*/
 	void Draw(RenderWindow* window);
 
 	// Movement Functions
 	void MoveLeft();
 	void MoveRight();
 	void MoveDown();
+	void MoveUp();
 
-	// Rotate Function
-	void Rotate();
+	// Rotate Function //POLYMORPHISM AT PLAY
+	virtual void Rotate();
 
 	// Block Points
 	Block point1;
@@ -32,6 +39,8 @@ public:
 	float point3y;
 	float point4x;
 	float point4y;
+
+	ParentShape* pNext = nullptr;
 };
 
 // I Block
@@ -54,6 +63,8 @@ public:
 		point3.Cube.setFillColor(Color::Cyan);
 		point4.Cube.setFillColor(Color::Cyan);
 	};
+
+	void rotate();
 };
 
 // J Block
@@ -70,11 +81,13 @@ public:
 		//middle = point2;
 		//left = point3;
 		//right = point4;
-		point1.Cube.setFillColor(Color::Magenta);
-		point2.Cube.setFillColor(Color::Magenta);
-		point3.Cube.setFillColor(Color::Magenta);
-		point4.Cube.setFillColor(Color::Magenta);
+		point1.Cube.setFillColor(Color::Color(106, 13, 173));
+		point2.Cube.setFillColor(Color::Color(106, 13, 173));
+		point3.Cube.setFillColor(Color::Color(106, 13, 173));
+		point4.Cube.setFillColor(Color::Color(106, 13, 173));
 	};
+
+	void rotate();
 };
 
 // L Block
@@ -97,6 +110,8 @@ public:
 		point3.Cube.setFillColor(Color::Blue);
 		point4.Cube.setFillColor(Color::Blue);
 	};
+
+	void rotate();
 };
 
 // O Block
@@ -119,6 +134,8 @@ public:
 		point3.Cube.setFillColor(Color::Yellow);
 		point4.Cube.setFillColor(Color::Yellow);
 	};
+
+	//void rotate();
 };
 
 // S Block
@@ -141,6 +158,8 @@ public:
 		point3.Cube.setFillColor(Color::Green);
 		point4.Cube.setFillColor(Color::Green);
 	};
+
+	void rotate();
 };
 
 // T Block
@@ -163,6 +182,8 @@ public:
 		point3.Cube.setFillColor(Color::Magenta);
 		point4.Cube.setFillColor(Color::Magenta);
 	};
+
+	void rotate();
 };
 
 // Z Block
@@ -170,9 +191,9 @@ public:
 class Zblock : public ParentShape
 {
 public:
-	Zblock(float newtopleftx = 150.f, float newtoplefty = 0.f, float newtopmiddlex = 120.f,
+	Zblock(float newtopleftx = 90.f, float newtoplefty = 0.f, float newtopmiddlex = 120.f,
 		float newtopmiddley = 0.f, float newbottommiddlex = 120.f, float newbottommiddley = 30.f,
-		float newbottomrightx = 90.f, float newbottomrighty = 30.f) :
+		float newbottomrightx = 150.f, float newbottomrighty = 30.f) :
 		ParentShape(newtopleftx, newtoplefty, newtopmiddlex, newtopmiddley,
 			newbottommiddlex, newbottommiddley, newbottomrightx, newbottomrighty)
 	{
@@ -185,4 +206,6 @@ public:
 		point3.Cube.setFillColor(Color::Red);
 		point4.Cube.setFillColor(Color::Red);
 	};
+
+	void rotate();
 };

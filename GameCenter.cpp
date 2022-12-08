@@ -1,5 +1,5 @@
 #include "GameCenter.hpp"
-
+#include <windows.h>
 
 Game::Game() {
 
@@ -24,6 +24,8 @@ void Game::update() {
 	//relative to the whole screen.
 	//std::cout << "Mouse Pos: " << Mouse::getPosition().x << Mouse::getPosition().y << "\n";
 
+	/*sleep(seconds(2));
+	this->testIblock.ParentShape::MoveDown();*/
 
 	//relative to game window:
 	//std::cout << "Mouse Pos: " << Mouse::getPosition(*this->window).x << Mouse::getPosition(*this->window).y << "\n";
@@ -33,7 +35,6 @@ void Game::pollEvents() {
 
 
 	while (this->window->pollEvent(this->event)) {
-
 		switch (this->event.type) { //checks the event that happens when triggered
 
 		case Event::Closed: //what happens click the close button.
@@ -47,19 +48,58 @@ void Game::pollEvents() {
 			}
 			if (this->event.key.code == Keyboard::Down) {
 
-				this->testIblock.ParentShape::MoveDown();
+				this->genericshape.ParentShape::MoveDown();
 			}
 			if (this->event.key.code == Keyboard::Right) {
 
-				this->testIblock.ParentShape::MoveRight();
+				this->genericshape.ParentShape::MoveRight();
 			}
 			if (this->event.key.code == Keyboard::Left) {
 
-				this->testIblock.ParentShape::MoveLeft();
+				this->genericshape.ParentShape::MoveLeft();
 			}
 			if (this->event.key.code == Keyboard::Up) {
 
-				this->testIblock.Rotate(); // Need to fix!
+				//this->testIblock.Rotate(); // Need to fix!
+				this->genericshape.ParentShape::MoveUp();
+			}
+			if (this->event.key.code == Keyboard::Enter) {
+				int random = rand() % 7 + 1;
+				ParentShape* toInsert = new ParentShape(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y, 
+					genericshape.point3x, genericshape.point3y, genericshape.point4x, genericshape.point4y);
+				toInsert->point1.Cube.setFillColor(genericshape.point1.Cube.getFillColor());
+				toInsert->point2.Cube.setFillColor(genericshape.point2.Cube.getFillColor());
+				toInsert->point3.Cube.setFillColor(genericshape.point3.Cube.getFillColor());
+				toInsert->point4.Cube.setFillColor(genericshape.point4.Cube.getFillColor());
+				gameShapeList.insert(toInsert);
+				if (random == 1)
+				{
+					genericshape = *(new Iblock);
+				}
+				if (random == 2)
+				{
+					genericshape = *(new Jblock);
+				}
+				if (random == 3)
+				{
+					genericshape = *(new Oblock);
+				}
+				if (random == 4)
+				{
+					genericshape = *(new Zblock);
+				}
+				if (random == 5)
+				{
+					genericshape = *(new Sblock);
+				}
+				if (random == 6)
+				{
+					genericshape = *(new Lblock);
+				}
+				if (random == 7)
+				{
+					genericshape = *(new Tblock);
+				}
 			}
 			break;
 
@@ -101,7 +141,12 @@ void Game::render() {
 		}
 	}
 
-	testIblock.ParentShape::Draw(this->window);
+	genericshape.ParentShape::Draw(this->window);
+	if (gameShapeList.pHead != nullptr)
+	{
+		gameShapeList.printShapeList(this->window);
+	}
+	//testIblock.ParentShape::Draw(this->window);
 	//testJblock.ParentShape::Draw(this->window);
 	//testLblock.ParentShape::Draw(this->window);
 	//testOblock.ParentShape::Draw(this->window);

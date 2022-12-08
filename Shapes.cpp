@@ -1,4 +1,4 @@
-#include "Shapes.h"
+#include "Shapes.hpp"
 
 // Parent Shape Constructor
 ParentShape::ParentShape(float newp1x, float newp1y, float newp2x, float newp2y,
@@ -33,31 +33,66 @@ void ParentShape::Draw(RenderWindow* window)
 
 void ParentShape::MoveLeft()
 {
-	point1x -= 30.f;
-	point2x -= 30.f;
-	point3x -= 30.f;
-	point4x -= 30.f;
+	// Check the relevant coordinates for each point and determines if it had collided with the boundary in that direction
+	if (point1x != 0.f && point2x != 0.f && point3x != 0.f && point4x != 0.f)
+	{
+		point1x -= 30.f;
+		point2x -= 30.f;
+		point3x -= 30.f;
+		point4x -= 30.f;
+		this->point1.Cube.setPosition(point1x, point1y);
+		this->point2.Cube.setPosition(point2x, point2y);
+		this->point3.Cube.setPosition(point3x, point3y);
+		this->point4.Cube.setPosition(point4x, point4y);
+	}
 }
 
 void ParentShape::MoveRight()
 {
-	point1x += 30.f;
-	point2x += 30.f;
-	point3x += 30.f;
-	point4x += 30.f;
+	// Check the relevant coordinates for each point and determines if it had collided with the boundary in that direction
+	if (point1x != 270.f && point2x != 270.f && point3x != 270.f && point4x != 270.f)
+	{
+		point1x += 30.f;
+		point2x += 30.f;
+		point3x += 30.f;
+		point4x += 30.f;
+		this->point1.Cube.setPosition(point1x, point1y);
+		this->point2.Cube.setPosition(point2x, point2y);
+		this->point3.Cube.setPosition(point3x, point3y);
+		this->point4.Cube.setPosition(point4x, point4y);
+	}
 }
 
 void ParentShape::MoveDown()
 {
-	point1y += 30.f;
-	point2y += 30.f;
-	point3y += 30.f;
-	point4y += 30.f;
-	this->point1.Cube.setPosition(point1x, point1y);
-	this->point2.Cube.setPosition(point2x, point2y);
-	this->point3.Cube.setPosition(point3x, point3y);
-	this->point4.Cube.setPosition(point4x, point4y);
+	// Check the relevant coordinates for each point and determines if it had collided with the boundary in that direction
+	if (point1y != 570.f && point2y != 570.f && point3y != 570.f && point4y != 570.f)
+	{
+		point1y += 30.f;
+		point2y += 30.f;
+		point3y += 30.f;
+		point4y += 30.f;
+		this->point1.Cube.setPosition(point1x, point1y);
+		this->point2.Cube.setPosition(point2x, point2y);
+		this->point3.Cube.setPosition(point3x, point3y);
+		this->point4.Cube.setPosition(point4x, point4y);
+	}
+}
 
+void ParentShape::MoveUp()
+{
+	// Check the relevant coordinates for each point and determines if it had collided with the boundary in that direction
+	if (point1y != 0.f && point2y != 0.f && point3y != 0.f && point4y != 0.f)
+	{
+		point1y -= 30.f;
+		point2y -= 30.f;
+		point3y -= 30.f;
+		point4y -= 30.f;
+		this->point1.Cube.setPosition(point1x, point1y);
+		this->point2.Cube.setPosition(point2x, point2y);
+		this->point3.Cube.setPosition(point3x, point3y);
+		this->point4.Cube.setPosition(point4x, point4y);
+	}
 }
 
 void ParentShape::Rotate()
