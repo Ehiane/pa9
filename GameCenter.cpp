@@ -86,7 +86,67 @@ void Game::pollEvents() {
 			}
 			if (this->event.key.code == Keyboard::Space) {
 
-				this->genericshape.ParentShape::MoveUp();
+				int temp;
+				temp = type;
+				type = savedtype;
+				savedtype = temp;
+				if (type == 1)
+				{
+					genericshape = *(new Iblock);
+				}
+				if (type == 2)
+				{
+					genericshape = *(new Jblock);
+				}
+				if (type == 3)
+				{
+					genericshape = *(new Oblock);
+				}
+				if (type == 4)
+				{
+					genericshape = *(new Zblock);
+				}
+				if (type == 5)
+				{
+					genericshape = *(new Sblock);
+				}
+				if (type == 6)
+				{
+					genericshape = *(new Lblock);
+				}
+				if (type == 7)
+				{
+					genericshape = *(new Tblock);
+				}
+				// Saved Conversion
+				if (savedtype == 1) // Add for saved type
+				{
+					savedshape = *(new Iblock);
+				}
+				if (savedtype == 2)
+				{
+					savedshape = *(new Jblock);
+				}
+				if (savedtype == 3)
+				{
+					savedshape = *(new Oblock);
+				}
+				if (savedtype == 4)
+				{
+					savedshape = *(new Zblock);
+				}
+				if (savedtype == 5)
+				{
+					savedshape = *(new Sblock);
+				}
+				if (savedtype == 6)
+				{
+					savedshape = *(new Lblock);
+				}
+				if (savedtype == 7)
+				{
+					savedshape = *(new Tblock);
+				}
 			}
 			if (this->event.key.code == Keyboard::Up) {
 
@@ -259,7 +319,7 @@ void Game::render() {
 	//title and names
 	Font font;
 	font.loadFromFile("./advanced_pixel-7.ttf");
-	Text title, names, next;
+	Text title, names, next, saved;
 	title.setFont(font);
 	title.setString("TETRIS");
 	title.setCharacterSize(150);
@@ -275,9 +335,15 @@ void Game::render() {
 	next.setCharacterSize(60);
 	next.setPosition(450, 390);
 	next.setFillColor(sf::Color::White);
+	saved.setFont(font);
+	saved.setString("Saved Block");
+	saved.setCharacterSize(60);
+	saved.setPosition(400, 240);
+	saved.setFillColor(sf::Color::White);
 	this->window->draw(title);
 	this->window->draw(names);
 	this->window->draw(next);
+	this->window->draw(saved);
 
 	// current shape
 	genericshape.ParentShape::Draw(this->window);
@@ -289,10 +355,14 @@ void Game::render() {
 	}
 
 	// future shape
-	ParentShape toPrint = nextgenericshape;
-	toPrint.ParentShape::MoveNext();
-	toPrint.ParentShape::Draw(this->window);
-	//toPrint
+	ParentShape toPrintNext = nextgenericshape;
+	toPrintNext.ParentShape::MoveNext();
+	toPrintNext.ParentShape::Draw(this->window);
+	
+	// saved shape
+	ParentShape toPrintSaved = savedshape;
+	toPrintSaved.ParentShape::MoveSaved();
+	toPrintSaved.ParentShape::Draw(this->window);
 
 	this->window->display();
 

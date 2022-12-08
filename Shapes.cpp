@@ -111,6 +111,22 @@ void ParentShape::MoveNext()
 	this->point4.Cube.setPosition(point4x, point4y);
 }
 
+void ParentShape::MoveSaved()
+{
+	point1x += 420.f;
+	point2x += 420.f;
+	point3x += 420.f;
+	point4x += 420.f;
+	point1y += 350.f;
+	point2y += 350.f;
+	point3y += 350.f;
+	point4y += 350.f;
+	this->point1.Cube.setPosition(point1x, point1y);
+	this->point2.Cube.setPosition(point2x, point2y);
+	this->point3.Cube.setPosition(point3x, point3y);
+	this->point4.Cube.setPosition(point4x, point4y);
+}
+
 void ParentShape::Rotate()
 {
 	std::cout << "Rotate me!!!!!" << std::endl;

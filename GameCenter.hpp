@@ -53,9 +53,11 @@ private:
 	ShapeList gameShapeList;
 	int type = 1; // 1: I, 2: J, 3: O, 4: Z, 5: S, 6: L, 7: B
 	int nexttype = 1;
+	int savedtype = 1;
 
 	ParentShape genericshape = *(new Iblock);
 	ParentShape nextgenericshape = *(new Iblock);
+	ParentShape savedshape = *(new Iblock);
 
 	//Game Objects:
 	//RectangleShape enemy;
