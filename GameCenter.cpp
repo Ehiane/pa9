@@ -59,9 +59,57 @@ void Game::pollEvents() {
 				this->genericshape.ParentShape::MoveLeft();
 			}
 			if (this->event.key.code == Keyboard::Up) {
-
-				//this->testIblock.Rotate(); // Need to fix!
-				this->genericshape.ParentShape::MoveUp();
+				//this->genericshape.ParentShape::MoveUp();
+				if (this->type == 1)
+				{
+					Iblock Itemp(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y,
+						genericshape.point3x, genericshape.point3y, genericshape.point4x, genericshape.point4y);
+					Itemp.rotate();
+					genericshape = ParentShape(Itemp.point1x, Itemp.point1y, Itemp.point2x, Itemp.point2y,
+						Itemp.point3x, Itemp.point3y, Itemp.point4x, Itemp.point4y);
+				}
+				if (this->type == 2)
+				{
+					Jblock Jtemp(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y,
+						genericshape.point3x, genericshape.point3y, genericshape.point4x, genericshape.point4y);
+					Jtemp.rotate();
+					genericshape = ParentShape(Jtemp.point1x, Jtemp.point1y, Jtemp.point2x, Jtemp.point2y,
+						Jtemp.point3x, Jtemp.point3y, Jtemp.point4x, Jtemp.point4y);
+				}
+				// No Rotate for O Block
+				if (this->type == 4)
+				{
+					Zblock Ztemp(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y,
+						genericshape.point3x, genericshape.point3y, genericshape.point4x, genericshape.point4y);
+					Ztemp.rotate();
+					genericshape = ParentShape(Ztemp.point1x, Ztemp.point1y, Ztemp.point2x, Ztemp.point2y,
+						Ztemp.point3x, Ztemp.point3y, Ztemp.point4x, Ztemp.point4y);		
+				}
+				if (this->type == 5)
+				{
+					Sblock Stemp(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y,
+						genericshape.point3x, genericshape.point3y, genericshape.point4x, genericshape.point4y);
+					Stemp.rotate();
+					genericshape = ParentShape(Stemp.point1x, Stemp.point1y, Stemp.point2x, Stemp.point2y,
+						Stemp.point3x, Stemp.point3y, Stemp.point4x, Stemp.point4y);
+				}
+				if (this->type == 6)
+				{
+					Lblock Ltemp(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y,
+						genericshape.point3x, genericshape.point3y, genericshape.point4x, genericshape.point4y);
+					Ltemp.rotate();
+					genericshape = ParentShape(Ltemp.point1x, Ltemp.point1y, Ltemp.point2x, Ltemp.point2y,
+						Ltemp.point3x, Ltemp.point3y, Ltemp.point4x, Ltemp.point4y);
+				}
+				if (this->type == 7)
+				{
+					Tblock Ttemp(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y,
+						genericshape.point3x, genericshape.point3y, genericshape.point4x, genericshape.point4y);
+					Ttemp.rotate();
+					genericshape = ParentShape(Ttemp.point1x, Ttemp.point1y, Ttemp.point2x, Ttemp.point2y,
+						Ttemp.point3x, Ttemp.point3y, Ttemp.point4x, Ttemp.point4y);
+					
+				}
 			}
 			if (this->event.key.code == Keyboard::Enter) {
 				int random = rand() % 7 + 1;
@@ -75,30 +123,37 @@ void Game::pollEvents() {
 				if (random == 1)
 				{
 					genericshape = *(new Iblock);
+					this->type = 1;
 				}
 				if (random == 2)
 				{
 					genericshape = *(new Jblock);
+					this->type = 2;
 				}
 				if (random == 3)
 				{
 					genericshape = *(new Oblock);
+					this->type = 3;
 				}
 				if (random == 4)
 				{
 					genericshape = *(new Zblock);
+					this->type = 4;
 				}
 				if (random == 5)
 				{
 					genericshape = *(new Sblock);
+					this->type = 5;
 				}
 				if (random == 6)
 				{
 					genericshape = *(new Lblock);
+					this->type = 6;
 				}
 				if (random == 7)
 				{
 					genericshape = *(new Tblock);
+					this->type = 7;
 				}
 			}
 			break;
@@ -141,18 +196,16 @@ void Game::render() {
 		}
 	}
 
+	// Draws Shapes to Screen
+
+	// Current Shape
 	genericshape.ParentShape::Draw(this->window);
+
+	// Past Shapes
 	if (gameShapeList.pHead != nullptr)
 	{
 		gameShapeList.printShapeList(this->window);
 	}
-	//testIblock.ParentShape::Draw(this->window);
-	//testJblock.ParentShape::Draw(this->window);
-	//testLblock.ParentShape::Draw(this->window);
-	//testOblock.ParentShape::Draw(this->window);
-	//testSblock.ParentShape::Draw(this->window);
-	//testTblock.ParentShape::Draw(this->window);
-	//testZblock.ParentShape::Draw(this->window);
 
 	this->window->display();
 }

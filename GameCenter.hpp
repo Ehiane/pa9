@@ -31,8 +31,6 @@ public:
 	//Accessors:
 	const bool running() const;
 
-	ParentShape genericshape = *(new Iblock);
-
 	/*Iblock testIblock;
 	Jblock testJblock;
 	Oblock testOblock;
@@ -53,6 +51,9 @@ private:
 	VideoMode videMode;
 
 	ShapeList gameShapeList;
+	int type = 1; // 1: I, 2: J, 3: O, 4: Z, 5: S, 6: L, 7: B
+
+	ParentShape genericshape = *(new Iblock);
 
 	//Game Objects:
 	//RectangleShape enemy;
