@@ -45,6 +45,22 @@ void Game::pollEvents() {
 
 				this->window->close();
 			}
+			if (this->event.key.code == Keyboard::Down) {
+
+				this->testIblock.ParentShape::MoveDown();
+			}
+			if (this->event.key.code == Keyboard::Right) {
+
+				this->testIblock.ParentShape::MoveRight();
+			}
+			if (this->event.key.code == Keyboard::Left) {
+
+				this->testIblock.ParentShape::MoveLeft();
+			}
+			if (this->event.key.code == Keyboard::Up) {
+
+				this->testIblock.Rotate(); // Need to fix!
+			}
 			break;
 
 
@@ -85,7 +101,7 @@ void Game::render() {
 		}
 	}
 
-	//testIblock.ParentShape::Draw(this->window);
+	testIblock.ParentShape::Draw(this->window);
 	//testJblock.ParentShape::Draw(this->window);
 	//testLblock.ParentShape::Draw(this->window);
 	//testOblock.ParentShape::Draw(this->window);
