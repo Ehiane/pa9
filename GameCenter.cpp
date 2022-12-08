@@ -5,6 +5,42 @@ Game::Game() {
 
 	this->initVariables();
 	this->initWindows();
+	int random = rand() % 7 + 1;
+	if (random == 1)
+	{
+		nextgenericshape = *(new Iblock);
+		this->nexttype = 1;
+	}
+	if (random == 2)
+	{
+		nextgenericshape = *(new Jblock);
+		this->nexttype = 2;
+	}
+	if (random == 3)
+	{
+		nextgenericshape = *(new Oblock);
+		this->nexttype = 3;
+	}
+	if (random == 4)
+	{
+		nextgenericshape = *(new Zblock);
+		this->nexttype = 4;
+	}
+	if (random == 5)
+	{
+		nextgenericshape = *(new Sblock);
+		this->nexttype = 5;
+	}
+	if (random == 6)
+	{
+		nextgenericshape = *(new Lblock);
+		this->nexttype = 6;
+	}
+	if (random == 7)
+	{
+		nextgenericshape = *(new Tblock);
+		this->nexttype = 7;
+	}
 }
 
 Game::~Game() {
@@ -47,6 +83,10 @@ void Game::pollEvents() {
 			if (this->event.key.code == Keyboard::Left) {
 
 				this->genericshape.ParentShape::MoveLeft();
+			}
+			if (this->event.key.code == Keyboard::Space) {
+
+				this->genericshape.ParentShape::MoveUp();
 			}
 			if (this->event.key.code == Keyboard::Up) {
 
@@ -132,38 +172,52 @@ void Game::pollEvents() {
 				gameShapeList.insert(toInsert);
 				if (random == 1)
 				{
-					genericshape = *(new Iblock);
-					this->type = 1;
+					genericshape = nextgenericshape;
+					type = nexttype;
+					nextgenericshape = *(new Iblock);
+					this->nexttype = 1;
 				}
 				if (random == 2)
 				{
-					genericshape = *(new Jblock);
-					this->type = 2;
+					genericshape = nextgenericshape;
+					type = nexttype;
+					nextgenericshape = *(new Jblock);
+					this->nexttype = 2;
 				}
 				if (random == 3)
 				{
-					genericshape = *(new Oblock);
-					this->type = 3;
+					genericshape = nextgenericshape;
+					type = nexttype;
+					nextgenericshape = *(new Oblock);
+					this->nexttype = 3;
 				}
 				if (random == 4)
 				{
-					genericshape = *(new Zblock);
-					this->type = 4;
+					genericshape = nextgenericshape;
+					type = nexttype;
+					nextgenericshape = *(new Zblock);
+					this->nexttype = 4;
 				}
 				if (random == 5)
 				{
-					genericshape = *(new Sblock);
-					this->type = 5;
+					genericshape = nextgenericshape;
+					type = nexttype;
+					nextgenericshape = *(new Sblock);
+					this->nexttype = 5;
 				}
 				if (random == 6)
 				{
-					genericshape = *(new Lblock);
-					this->type = 6;
+					genericshape = nextgenericshape;
+					type = nexttype;
+					nextgenericshape = *(new Lblock);
+					this->nexttype = 6;
 				}
 				if (random == 7)
 				{
-					genericshape = *(new Tblock);
-					this->type = 7;
+					genericshape = nextgenericshape;
+					type = nexttype;
+					nextgenericshape = *(new Tblock);
+					this->nexttype = 7;
 				}
 			}
 			break;
@@ -205,7 +259,7 @@ void Game::render() {
 	//title and names
 	Font font;
 	font.loadFromFile("./advanced_pixel-7.ttf");
-	Text title, names;
+	Text title, names, next;
 	title.setFont(font);
 	title.setString("TETRIS");
 	title.setCharacterSize(150);
@@ -216,17 +270,29 @@ void Game::render() {
 	names.setCharacterSize(30);
 	names.setPosition(400, 200);
 	names.setFillColor(sf::Color::White);
+	next.setFont(font);
+	next.setString("Next Block");
+	next.setCharacterSize(60);
+	next.setPosition(450, 390);
+	next.setFillColor(sf::Color::White);
 	this->window->draw(title);
 	this->window->draw(names);
+	this->window->draw(next);
 
-	//current shape
+	// current shape
 	genericshape.ParentShape::Draw(this->window);
 
-	//past shapes
+	// past shapes
 	if (gameShapeList.pHead != nullptr)
 	{
 		gameShapeList.printShapeList(this->window);
 	}
+
+	// future shape
+	ParentShape toPrint = nextgenericshape;
+	toPrint.ParentShape::MoveNext();
+	toPrint.ParentShape::Draw(this->window);
+	//toPrint
 
 	this->window->display();
 

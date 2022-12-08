@@ -20,6 +20,7 @@ public:
 	void MoveRight();
 	void MoveDown();
 	void MoveUp();
+	void MoveNext(); // Moves block to side of screen to show next block
 
 	// Rotate Function //POLYMORPHISM AT PLAY
 	virtual void Rotate();
