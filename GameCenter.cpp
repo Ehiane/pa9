@@ -1,11 +1,10 @@
-#include "GameCenter.hpp"
-#include <windows.h>
+#include "GameCenter.h"
+
 
 Game::Game() {
 
 	this->initVariables();
 	this->initWindows();
-	//this->initEnemies();
 }
 
 Game::~Game() {
@@ -20,15 +19,6 @@ void Game::update() {
 
 	this->pollEvents();
 
-	//update mouse position:
-	//relative to the whole screen.
-	//std::cout << "Mouse Pos: " << Mouse::getPosition().x << Mouse::getPosition().y << "\n";
-
-	/*sleep(seconds(2));
-	this->testIblock.ParentShape::MoveDown();*/
-
-	//relative to game window:
-	//std::cout << "Mouse Pos: " << Mouse::getPosition(*this->window).x << Mouse::getPosition(*this->window).y << "\n";
 }
 
 void Game::pollEvents() {
@@ -59,7 +49,7 @@ void Game::pollEvents() {
 				this->genericshape.ParentShape::MoveLeft();
 			}
 			if (this->event.key.code == Keyboard::Up) {
-				//this->genericshape.ParentShape::MoveUp();
+
 				if (this->type == 1)
 				{
 					Iblock Itemp(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y,
@@ -83,7 +73,7 @@ void Game::pollEvents() {
 						genericshape.point3x, genericshape.point3y, genericshape.point4x, genericshape.point4y);
 					Ztemp.rotate();
 					genericshape = ParentShape(Ztemp.point1x, Ztemp.point1y, Ztemp.point2x, Ztemp.point2y,
-						Ztemp.point3x, Ztemp.point3y, Ztemp.point4x, Ztemp.point4y);		
+						Ztemp.point3x, Ztemp.point3y, Ztemp.point4x, Ztemp.point4y);
 				}
 				if (this->type == 5)
 				{
@@ -108,12 +98,12 @@ void Game::pollEvents() {
 					Ttemp.rotate();
 					genericshape = ParentShape(Ttemp.point1x, Ttemp.point1y, Ttemp.point2x, Ttemp.point2y,
 						Ttemp.point3x, Ttemp.point3y, Ttemp.point4x, Ttemp.point4y);
-					
+
 				}
 			}
 			if (this->event.key.code == Keyboard::Enter) {
 				int random = rand() % 7 + 1;
-				ParentShape* toInsert = new ParentShape(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y, 
+				ParentShape* toInsert = new ParentShape(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y,
 					genericshape.point3x, genericshape.point3y, genericshape.point4x, genericshape.point4y);
 				toInsert->point1.Cube.setFillColor(genericshape.point1.Cube.getFillColor());
 				toInsert->point2.Cube.setFillColor(genericshape.point2.Cube.getFillColor());
@@ -164,20 +154,16 @@ void Game::pollEvents() {
 
 }
 
+
 //Visualises the output of the code.
 void Game::render() {
 
 	/*Renders the game object
-
 		-Clear Old frame
 		-Render Objects
 		-Display frame in Window
-
 		Renders the game objects.
-
 	*/
-
-	//this->window->clear(Color::Color(192,192,192)); //Silver Grey
 
 	this->window->clear(); //black
 
@@ -196,18 +182,34 @@ void Game::render() {
 		}
 	}
 
-	// Draws Shapes to Screen
+	//title and names
+	Font font;
+	font.loadFromFile("./advanced_pixel-7.ttf");
+	Text title, names;
+	title.setFont(font);
+	title.setString("TETRIS");
+	title.setCharacterSize(150);
+	title.setPosition(375, 20);
+	title.setFillColor(sf::Color::White);
+	names.setFont(font);
+	names.setString("by Cole, Ehiane, Will, and Danny");
+	names.setCharacterSize(30);
+	names.setPosition(400, 200);
+	names.setFillColor(sf::Color::White);
+	this->window->draw(title);
+	this->window->draw(names);
 
-	// Current Shape
+	//current shape
 	genericshape.ParentShape::Draw(this->window);
 
-	// Past Shapes
+	//past shapes
 	if (gameShapeList.pHead != nullptr)
 	{
 		gameShapeList.printShapeList(this->window);
 	}
 
 	this->window->display();
+	
 }
 
 //Accessors:
@@ -230,7 +232,3 @@ void Game::initWindows() {
 	this->window->setFramerateLimit(144);
 }
 
-void Game::initEnemies()
-{
-
-}
