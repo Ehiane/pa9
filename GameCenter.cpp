@@ -1,4 +1,4 @@
-#include "GameCenter.h"
+#include "GameCenter.hpp"
 
 
 Game::Game() {
@@ -65,6 +65,10 @@ void Game::pollEvents() {
 					Jtemp.rotate();
 					genericshape = ParentShape(Jtemp.point1x, Jtemp.point1y, Jtemp.point2x, Jtemp.point2y,
 						Jtemp.point3x, Jtemp.point3y, Jtemp.point4x, Jtemp.point4y);
+					genericshape.point1.Cube.setFillColor(Jtemp.point1.Cube.getFillColor());
+					genericshape.point2.Cube.setFillColor(Jtemp.point1.Cube.getFillColor());
+					genericshape.point3.Cube.setFillColor(Jtemp.point1.Cube.getFillColor());
+					genericshape.point4.Cube.setFillColor(Jtemp.point1.Cube.getFillColor());
 				}
 				// No Rotate for O Block
 				if (this->type == 4)
@@ -74,6 +78,10 @@ void Game::pollEvents() {
 					Ztemp.rotate();
 					genericshape = ParentShape(Ztemp.point1x, Ztemp.point1y, Ztemp.point2x, Ztemp.point2y,
 						Ztemp.point3x, Ztemp.point3y, Ztemp.point4x, Ztemp.point4y);
+					genericshape.point1.Cube.setFillColor(Ztemp.point1.Cube.getFillColor());
+					genericshape.point2.Cube.setFillColor(Ztemp.point1.Cube.getFillColor());
+					genericshape.point3.Cube.setFillColor(Ztemp.point1.Cube.getFillColor());
+					genericshape.point4.Cube.setFillColor(Ztemp.point1.Cube.getFillColor());
 				}
 				if (this->type == 5)
 				{
@@ -82,6 +90,10 @@ void Game::pollEvents() {
 					Stemp.rotate();
 					genericshape = ParentShape(Stemp.point1x, Stemp.point1y, Stemp.point2x, Stemp.point2y,
 						Stemp.point3x, Stemp.point3y, Stemp.point4x, Stemp.point4y);
+					genericshape.point1.Cube.setFillColor(Stemp.point1.Cube.getFillColor());
+					genericshape.point2.Cube.setFillColor(Stemp.point1.Cube.getFillColor());
+					genericshape.point3.Cube.setFillColor(Stemp.point1.Cube.getFillColor());
+					genericshape.point4.Cube.setFillColor(Stemp.point1.Cube.getFillColor());
 				}
 				if (this->type == 6)
 				{
@@ -90,6 +102,10 @@ void Game::pollEvents() {
 					Ltemp.rotate();
 					genericshape = ParentShape(Ltemp.point1x, Ltemp.point1y, Ltemp.point2x, Ltemp.point2y,
 						Ltemp.point3x, Ltemp.point3y, Ltemp.point4x, Ltemp.point4y);
+					genericshape.point1.Cube.setFillColor(Ltemp.point1.Cube.getFillColor());
+					genericshape.point2.Cube.setFillColor(Ltemp.point1.Cube.getFillColor());
+					genericshape.point3.Cube.setFillColor(Ltemp.point1.Cube.getFillColor());
+					genericshape.point4.Cube.setFillColor(Ltemp.point1.Cube.getFillColor());
 				}
 				if (this->type == 7)
 				{
@@ -98,6 +114,10 @@ void Game::pollEvents() {
 					Ttemp.rotate();
 					genericshape = ParentShape(Ttemp.point1x, Ttemp.point1y, Ttemp.point2x, Ttemp.point2y,
 						Ttemp.point3x, Ttemp.point3y, Ttemp.point4x, Ttemp.point4y);
+					genericshape.point1.Cube.setFillColor(Ttemp.point1.Cube.getFillColor());
+					genericshape.point2.Cube.setFillColor(Ttemp.point1.Cube.getFillColor());
+					genericshape.point3.Cube.setFillColor(Ttemp.point1.Cube.getFillColor());
+					genericshape.point4.Cube.setFillColor(Ttemp.point1.Cube.getFillColor());
 
 				}
 			}
@@ -209,7 +229,7 @@ void Game::render() {
 	}
 
 	this->window->display();
-	
+
 }
 
 //Accessors:
@@ -231,4 +251,3 @@ void Game::initWindows() {
 
 	this->window->setFramerateLimit(144);
 }
-
