@@ -346,31 +346,37 @@ void Game::render() {
 	//title and names
 	Font font;
 	font.loadFromFile("./advanced_pixel-7.ttf");
-	Text title, names, next, saved;
+	Text title, names, next, saved, instructions;
 	title.setFont(font);
 	title.setString("TETRIS");
 	title.setCharacterSize(150);
-	title.setPosition(375, 20);
+	title.setPosition(375, 0);
 	title.setFillColor(sf::Color::White);
 	names.setFont(font);
 	names.setString("by Cole, Ehiane, Will, and Danny");
 	names.setCharacterSize(30);
-	names.setPosition(400, 200);
+	names.setPosition(400, 150);
 	names.setFillColor(sf::Color::White);
 	next.setFont(font);
 	next.setString("Next Block");
 	next.setCharacterSize(60);
-	next.setPosition(450, 390);
+	next.setPosition(350, 390);
 	next.setFillColor(sf::Color::White);
 	saved.setFont(font);
 	saved.setString("Saved Block");
 	saved.setCharacterSize(60);
-	saved.setPosition(400, 240);
+	saved.setPosition(350, 220);
 	saved.setFillColor(sf::Color::White);
+	instructions.setFont(font);
+	instructions.setString("----HOW TO PLAY----\nLEFT  - MOVE LEFT\nRIGHT - MOVE RIGHT\nDOWN  - MOVE DOWN\nUP    - ROTATE\nSPACE - SWAP \nW/ SAVED BLOCK\n-----------------------");
+	instructions.setCharacterSize(20);
+	instructions.setPosition(600, 325);
+	instructions.setFillColor(sf::Color::White);
 	this->window->draw(title);
 	this->window->draw(names);
 	this->window->draw(next);
 	this->window->draw(saved);
+	this->window->draw(instructions);
 	
 
 	// current shape
