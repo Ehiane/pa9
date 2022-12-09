@@ -1,4 +1,4 @@
-#include "Shapes.hpp"
+#include "Shapes.h"
 
 // Parent Shape Constructor
 ParentShape::ParentShape(float newp1x, float newp1y, float newp2x, float newp2y,
@@ -77,30 +77,15 @@ void ParentShape::MoveDown()
 		this->point3.Cube.setPosition(point3x, point3y);
 		this->point4.Cube.setPosition(point4x, point4y);
 	}
-}
 
-void ParentShape::MoveUp()
-{
-	// Check the relevant coordinates for each point and determines if it had collided with the boundary in that direction
-	if (point1y != 0.f && point2y != 0.f && point3y != 0.f && point4y != 0.f)
-	{
-		point1y -= 30.f;
-		point2y -= 30.f;
-		point3y -= 30.f;
-		point4y -= 30.f;
-		this->point1.Cube.setPosition(point1x, point1y);
-		this->point2.Cube.setPosition(point2x, point2y);
-		this->point3.Cube.setPosition(point3x, point3y);
-		this->point4.Cube.setPosition(point4x, point4y);
-	}
 }
 
 void ParentShape::MoveNext()
 {
-	point1x += 420.f;
-	point2x += 420.f;
-	point3x += 420.f;
-	point4x += 420.f;
+	point1x += 300.f;
+	point2x += 300.f;
+	point3x += 300.f;
+	point4x += 300.f;
 	point1y += 490.f;
 	point2y += 490.f;
 	point3y += 490.f;
@@ -113,14 +98,14 @@ void ParentShape::MoveNext()
 
 void ParentShape::MoveSaved()
 {
-	point1x += 420.f;
-	point2x += 420.f;
-	point3x += 420.f;
-	point4x += 420.f;
-	point1y += 350.f;
-	point2y += 350.f;
-	point3y += 350.f;
-	point4y += 350.f;
+	point1x += 300.f;
+	point2x += 300.f;
+	point3x += 300.f;
+	point4x += 300.f;
+	point1y += 320.f;
+	point2y += 320.f;
+	point3y += 320.f;
+	point4y += 320.f;
 	this->point1.Cube.setPosition(point1x, point1y);
 	this->point2.Cube.setPosition(point2x, point2y);
 	this->point3.Cube.setPosition(point3x, point3y);

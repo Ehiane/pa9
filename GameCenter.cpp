@@ -1,10 +1,13 @@
-#include "GameCenter.hpp"
+#include "GameCenter.h"
 
 
 Game::Game() {
 
 	this->initVariables();
 	this->initWindows();
+
+	
+
 	int random = rand() % 7 + 1;
 	if (random == 1)
 	{
@@ -319,36 +322,42 @@ void Game::render() {
 	//title and names
 	Font font;
 	font.loadFromFile("./advanced_pixel-7.ttf");
-	Text title, names, next, saved;
+	Text title, names, next, saved, instructions;
 	title.setFont(font);
 	title.setString("TETRIS");
 	title.setCharacterSize(150);
-	title.setPosition(375, 20);
+	title.setPosition(375, 0);
 	title.setFillColor(sf::Color::White);
 	names.setFont(font);
 	names.setString("by Cole, Ehiane, Will, and Danny");
 	names.setCharacterSize(30);
-	names.setPosition(400, 200);
+	names.setPosition(400, 150);
 	names.setFillColor(sf::Color::White);
 	next.setFont(font);
 	next.setString("Next Block");
 	next.setCharacterSize(60);
-	next.setPosition(450, 390);
+	next.setPosition(350, 390);
 	next.setFillColor(sf::Color::White);
 	saved.setFont(font);
 	saved.setString("Saved Block");
 	saved.setCharacterSize(60);
-	saved.setPosition(400, 240);
+	saved.setPosition(350, 220);
 	saved.setFillColor(sf::Color::White);
+	instructions.setFont(font);
+	instructions.setString("----HOW TO PLAY----\nLEFT  - MOVE LEFT\nRIGHT - MOVE RIGHT\nDOWN  - MOVE DOWN\nUP    - ROTATE\nSPACE - SWAP \nW/ SAVED BLOCK\n-----------------------");
+	instructions.setCharacterSize(20);
+	instructions.setPosition(600, 325);
+	instructions.setFillColor(sf::Color::White);
 	this->window->draw(title);
 	this->window->draw(names);
 	this->window->draw(next);
 	this->window->draw(saved);
+	this->window->draw(instructions);
 
-	// current shape
+	//current shape
 	genericshape.ParentShape::Draw(this->window);
 
-	// past shapes
+	//past shapes
 	if (gameShapeList.pHead != nullptr)
 	{
 		gameShapeList.printShapeList(this->window);
@@ -358,14 +367,14 @@ void Game::render() {
 	ParentShape toPrintNext = nextgenericshape;
 	toPrintNext.ParentShape::MoveNext();
 	toPrintNext.ParentShape::Draw(this->window);
-	
+
 	// saved shape
 	ParentShape toPrintSaved = savedshape;
 	toPrintSaved.ParentShape::MoveSaved();
 	toPrintSaved.ParentShape::Draw(this->window);
 
 	this->window->display();
-
+	
 }
 
 //Accessors:
@@ -387,3 +396,4 @@ void Game::initWindows() {
 
 	this->window->setFramerateLimit(144);
 }
+
