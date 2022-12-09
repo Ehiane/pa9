@@ -10,7 +10,7 @@ public:
 	};
 	~ShapeList()
 	{
-
+		DeleteShapeList();
 	};
 	void insert(ParentShape* newShape)
 	{
@@ -30,13 +30,25 @@ public:
 	void printShapeList(RenderWindow* window) 
 	{
 		ParentShape* pCur = pHead;
-		//std::cout << "in print" << std::endl;
-		//pCur->ParentShape::Draw(window);
 		for(int i = 0; i <= length; i++)
 		{
 			pCur->ParentShape::Draw(window);
 			pCur = pCur->pNext;
 		}
+	};
+	void DeleteShapeList()
+	{
+		ParentShape* pCur = pHead;
+		/*ParentShape* pTemp;
+		for (int i = 0; i <= length; i++)
+		{
+			pTemp = pCur;
+			pCur = pCur->pNext;
+			delete(pTemp);
+		}*/
+		
+		length = 0;
+		pHead = nullptr;
 	};
 
 	ParentShape* pHead;

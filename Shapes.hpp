@@ -7,12 +7,6 @@ class ParentShape
 public:
 	ParentShape(float newp1x, float newp1y, float newp2x, float newp2y,
 		float newp3x, float newp3y, float newp4x, float newp4y);
-	/*ParentShape(ParentShape& copyParentShape) {
-		point1 = copyParentShape.point1;
-		point2 = copyParentShape.point2;
-		point3 = copyParentShape.point3;
-		point4 = copyParentShape.point4;
-	};*/
 	void Draw(RenderWindow* window);
 
 	// Movement Functions

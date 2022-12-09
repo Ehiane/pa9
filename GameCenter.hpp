@@ -31,13 +31,45 @@ public:
 	//Accessors:
 	const bool running() const;
 
-	/*Iblock testIblock;
-	Jblock testJblock;
-	Oblock testOblock;
-	Zblock testZblock;
-	Sblock testSblock;
-	Lblock testLblock;
-	Tblock testTblock;*/
+	//Checks for Collision
+	bool checkforCollisions()
+	{
+		bool truth;
+		ParentShape* pCur = gameShapeList.pHead;
+		if (gameShapeList.length > 0)
+		{
+			for (int i = 0; i <= gameShapeList.length; i++)
+			{
+				if (((genericshape.point1x == pCur->point1x) && (genericshape.point1y == pCur->point1y)) || ((genericshape.point1x == pCur->point2x) && (genericshape.point1y == pCur->point2y))
+					|| ((genericshape.point1x == pCur->point3x) && (genericshape.point1y == pCur->point3y)) || ((genericshape.point1x == pCur->point4x) && (genericshape.point1y == pCur->point4y)))
+				{
+					truth = true;
+					return truth;
+				}
+				if (((genericshape.point2x == pCur->point1x) && (genericshape.point2y == pCur->point1y)) || ((genericshape.point2x == pCur->point2x) && (genericshape.point2y == pCur->point2y))
+					|| ((genericshape.point2x == pCur->point3x) && (genericshape.point2y == pCur->point3y)) || ((genericshape.point2x == pCur->point4x) && (genericshape.point2y == pCur->point4y)))
+				{
+					truth = true;
+					return truth;
+				}
+				if (((genericshape.point3x == pCur->point1x) && (genericshape.point3y == pCur->point1y)) || ((genericshape.point3x == pCur->point2x) && (genericshape.point3y == pCur->point2y))
+					|| ((genericshape.point3x == pCur->point3x) && (genericshape.point3y == pCur->point3y)) || ((genericshape.point3x == pCur->point4x) && (genericshape.point3y == pCur->point4y)))
+				{
+					truth = true;
+					return truth;
+				}
+				if (((genericshape.point4x == pCur->point1x) && (genericshape.point4y == pCur->point1y)) || ((genericshape.point4x == pCur->point2x) && (genericshape.point4y == pCur->point2y))
+					|| ((genericshape.point4x == pCur->point3x) && (genericshape.point4y == pCur->point3y)) || ((genericshape.point4x == pCur->point4x) && (genericshape.point4y == pCur->point4y)))
+				{
+					truth = true;
+					return truth;
+				}
+				pCur = pCur->pNext;
+			}
+		}
+		truth = false;
+		return truth;
+	};
 
 private:
 	//Private Functions

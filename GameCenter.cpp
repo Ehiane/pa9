@@ -1,13 +1,10 @@
-#include "GameCenter.h"
+#include "GameCenter.hpp"
 
 
 Game::Game() {
 
 	this->initVariables();
 	this->initWindows();
-
-	
-
 	int random = rand() % 7 + 1;
 	if (random == 1)
 	{
@@ -75,17 +72,45 @@ void Game::pollEvents() {
 
 				this->window->close();
 			}
+			if (checkforCollisions() == true) { //what happens when a block is colloding when shape spawns.
+
+				gameShapeList.DeleteShapeList();
+				Font font;
+				font.loadFromFile("./advanced_pixel - 7.ttf");
+				Text clear;
+				clear.setFont(font);
+				clear.setString("TETRIS");
+				clear.setCharacterSize(150);
+				clear.setPosition(225, 350);
+				clear.setFillColor(sf::Color::White);
+				this->window->draw(clear);
+			}
 			if (this->event.key.code == Keyboard::Down) {
 
 				this->genericshape.ParentShape::MoveDown();
+				bool truth = checkforCollisions();
+				if (truth == true)
+				{
+					this->genericshape.ParentShape::MoveUp();
+				}
 			}
 			if (this->event.key.code == Keyboard::Right) {
 
 				this->genericshape.ParentShape::MoveRight();
+				bool truth = checkforCollisions();
+				if (truth == true)
+				{
+					this->genericshape.ParentShape::MoveLeft();
+				}
 			}
 			if (this->event.key.code == Keyboard::Left) {
 
 				this->genericshape.ParentShape::MoveLeft();
+				bool truth = checkforCollisions();
+				if (truth == true)
+				{
+					this->genericshape.ParentShape::MoveRight();
+				}
 			}
 			if (this->event.key.code == Keyboard::Space) {
 
@@ -152,7 +177,6 @@ void Game::pollEvents() {
 				}
 			}
 			if (this->event.key.code == Keyboard::Up) {
-
 				if (this->type == 1)
 				{
 					Iblock Itemp(genericshape.point1x, genericshape.point1y, genericshape.point2x, genericshape.point2y,
@@ -321,43 +345,38 @@ void Game::render() {
 
 	//title and names
 	Font font;
-	font.loadFromFile("./advanced_pixel-7.ttf");
-	Text title, names, next, saved, instructions;
+	font.loadFromFile("./advanced_pixel - 7.ttf");
+	Text title, names, next, saved;
 	title.setFont(font);
 	title.setString("TETRIS");
 	title.setCharacterSize(150);
-	title.setPosition(375, 0);
+	title.setPosition(375, 20);
 	title.setFillColor(sf::Color::White);
 	names.setFont(font);
 	names.setString("by Cole, Ehiane, Will, and Danny");
 	names.setCharacterSize(30);
-	names.setPosition(400, 150);
+	names.setPosition(400, 200);
 	names.setFillColor(sf::Color::White);
 	next.setFont(font);
 	next.setString("Next Block");
 	next.setCharacterSize(60);
-	next.setPosition(350, 390);
+	next.setPosition(450, 390);
 	next.setFillColor(sf::Color::White);
 	saved.setFont(font);
 	saved.setString("Saved Block");
 	saved.setCharacterSize(60);
-	saved.setPosition(350, 220);
+	saved.setPosition(400, 240);
 	saved.setFillColor(sf::Color::White);
-	instructions.setFont(font);
-	instructions.setString("----HOW TO PLAY----\nLEFT  - MOVE LEFT\nRIGHT - MOVE RIGHT\nDOWN  - MOVE DOWN\nUP    - ROTATE\nSPACE - SWAP \nW/ SAVED BLOCK\n-----------------------");
-	instructions.setCharacterSize(20);
-	instructions.setPosition(600, 325);
-	instructions.setFillColor(sf::Color::White);
 	this->window->draw(title);
 	this->window->draw(names);
 	this->window->draw(next);
 	this->window->draw(saved);
-	this->window->draw(instructions);
+	
 
-	//current shape
+	// current shape
 	genericshape.ParentShape::Draw(this->window);
 
-	//past shapes
+	// past shapes
 	if (gameShapeList.pHead != nullptr)
 	{
 		gameShapeList.printShapeList(this->window);
@@ -374,7 +393,7 @@ void Game::render() {
 	toPrintSaved.ParentShape::Draw(this->window);
 
 	this->window->display();
-	
+
 }
 
 //Accessors:
@@ -396,4 +415,3 @@ void Game::initWindows() {
 
 	this->window->setFramerateLimit(144);
 }
-
