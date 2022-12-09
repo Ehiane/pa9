@@ -76,7 +76,7 @@ void Game::pollEvents() {
 
 				gameShapeList.DeleteShapeList();
 				Font font;
-				font.loadFromFile("./advanced_pixel - 7.ttf");
+				font.loadFromFile("./advanced_pixel-7.ttf");
 				Text clear;
 				clear.setFont(font);
 				clear.setString("TETRIS");
