@@ -345,7 +345,7 @@ void Game::render() {
 
 	//title and names
 	Font font;
-	font.loadFromFile("./advanced_pixel - 7.ttf");
+	font.loadFromFile("./advanced_pixel-7.ttf");
 	Text title, names, next, saved;
 	title.setFont(font);
 	title.setString("TETRIS");
