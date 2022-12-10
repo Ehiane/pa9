@@ -70,7 +70,7 @@ void Game::pollEvents() {
 		case Event::KeyPressed:
 			if (this->event.key.code == Keyboard::Escape) { //what happens when you click on the escape key.
 
-				this->window->close();
+				
 			}
 			if (checkforCollisions() == true) { //what happens when a block is colloding when shape spawns.
 
