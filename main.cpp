@@ -1,37 +1,28 @@
 #include"GameCenter.hpp"
+#include "Block.hpp"
 
+int main()
+{
 
-
-int main() {
-
-
-
-	
-
-	///init Game Engine.
+	//init Game Engine.
 	Game runGame;
 
 	//GAME LOOP:
 	while (runGame.running()) {
 
-		
 		//update:
 		runGame.update();
-		
 
 		//render:
 		runGame.render();
+
 	}
 
 	//END OF APPLICATION:
 
 
-	
-
-
 	return 0;
 }
-	
 
 /**************************************************************
 * NOTE:
