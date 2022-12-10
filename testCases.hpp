@@ -10,6 +10,7 @@ public:
 	void update();
 	void pollEvents();
 	void render();
+	const bool testRunning();
 
 	void testRotation();
 	void testMoveLeft();
@@ -37,7 +38,7 @@ private:
 	/*int nexttype = 1;
 	int savedtype = 1;*/
 
-	ParentShape genericshape = *(new Iblock);
+	//ParentShape genericshape = *(new Iblock);
 	/*ParentShape nextgenericshape = *(new Iblock);
 	ParentShape savedshape = *(new Iblock);*/
 

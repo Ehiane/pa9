@@ -1,28 +1,84 @@
-#include"GameCenter.hpp"
-#include "Block.hpp"
+#include"testCases.hpp"
 
-int main()
-{
 
-	//init Game Engine.
+
+int main() {
+
+
+
+
+	int option = 0; 
 	Game runGame;
+	testCases test;
 
-	//GAME LOOP:
-	while (runGame.running()) {
+	while (option != 3) {
 
-		//update:
-		runGame.update();
+		if (option == 1) {
+			//run normal game
 
-		//render:
-		runGame.render();
+				///init Game Engine.
+		
+
+			//GAME LOOP:
+			while (runGame.running()) {
+
+
+				//update:
+				runGame.update();
+
+
+				//render:
+				runGame.render();
+			}
+
+			//END OF APPLICATION:
+
+			//TEST CASE LOOP:
+			while (test.testRunning()) {
+
+
+
+
+				//update:
+				test.update();
+
+
+				//render:
+				test.render();
+
+
+			}
+
+
+		}if (option == 2) {
+			//run test cases
+
+
+
+
+		}if (option == 3) {
+			//Exit
+
+
+		}
+
+
+
+
 
 	}
 
-	//END OF APPLICATION:
+	
+
+
+
+
+	
 
 
 	return 0;
 }
+	
 
 /**************************************************************
 * NOTE:

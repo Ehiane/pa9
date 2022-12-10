@@ -1,9 +1,6 @@
 #include "testCases.hpp"
 
 
-
-
-
 //PRIVATE FUNCTIONS:
 void testCases::initVariables() {
 	this->window = nullptr;
@@ -110,6 +107,13 @@ void testCases::render()
 
 	this->window->display();
 }
+
+const bool testCases::testRunning(){
+
+	return this->window->isOpen();
+}
+
+
 
 void testCases::testRotation(){
 
