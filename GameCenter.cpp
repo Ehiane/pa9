@@ -76,7 +76,7 @@ void Game::pollEvents() {
 
 				gameShapeList.DeleteShapeList();
 				
-				this->window->draw(clear);
+				
 			}
 			if (this->event.key.code == Keyboard::Down) {
 
