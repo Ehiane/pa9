@@ -70,39 +70,44 @@ void Game::pollEvents() {
 		case Event::KeyPressed:
 			if (this->event.key.code == Keyboard::Escape) { //what happens when you click on the escape key.
 
-				
+
 			}
 			if (checkforCollisions() == true) { //what happens when a block is colloding when shape spawns.
 
 				gameShapeList.DeleteShapeList();
-				
-				
+
 			}
 			if (this->event.key.code == Keyboard::Down) {
 
 				this->genericshape.ParentShape::MoveDown();
+				std::cout << "\nTESTCASE : MOVEMENT :[Movement DOWN FOR CURRENT BLOCK Passed!]\n";
 				bool truth = checkforCollisions();
 				if (truth == true)
 				{
 					this->genericshape.ParentShape::MoveUp();
+					std::cout << "\nTESTCASE : COLLISION :[Collision detected for current shape!]\n";
 				}
 			}
 			if (this->event.key.code == Keyboard::Right) {
 
 				this->genericshape.ParentShape::MoveRight();
+				std::cout << "\nTESTCASE : MOVEMENT :[Movement RIGHT FOR CURRENT BLOCK Passed!]\n";
 				bool truth = checkforCollisions();
 				if (truth == true)
 				{
 					this->genericshape.ParentShape::MoveLeft();
+					std::cout << "\nTESTCASE : COLLISION :[Collision detected for current shape!]\n";
 				}
 			}
 			if (this->event.key.code == Keyboard::Left) {
 
 				this->genericshape.ParentShape::MoveLeft();
+				std::cout << "\nTESTCASE : MOVEMENT :[Movement LEFT FOR CURRENT BLOCK Passed!]\n";
 				bool truth = checkforCollisions();
 				if (truth == true)
 				{
 					this->genericshape.ParentShape::MoveRight();
+					std::cout << "\nTESTCASE : COLLISION :[Collision detected for current shape!]\n";
 				}
 			}
 			if (this->event.key.code == Keyboard::Space) {
@@ -114,30 +119,37 @@ void Game::pollEvents() {
 				if (type == 1)
 				{
 					genericshape = *(new Iblock);
+					std::cout << "\nTESTCASE : SWAP-SHAPE :[Previous Shape changed to I-Block] Passed!\n";
 				}
 				if (type == 2)
 				{
 					genericshape = *(new Jblock);
+					std::cout << "\nTESTCASE : SWAP-SHAPE :[Previous Shape changed to J-Block] Passed!\n";
 				}
 				if (type == 3)
 				{
 					genericshape = *(new Oblock);
+					std::cout << "\nTESTCASE : SWAP-SHAPE :[Previous Shape changed to J-Block] Passed!\n";
 				}
 				if (type == 4)
 				{
 					genericshape = *(new Zblock);
+					std::cout << "\nTESTCASE : SWAP-SHAPE :[Previous Shape changed to Z-Block] Passed!\n";
 				}
 				if (type == 5)
 				{
 					genericshape = *(new Sblock);
+					std::cout << "\nTESTCASE : SWAP-SHAPE :[Previous Shape changed to S-Block] Passed!\n";
 				}
 				if (type == 6)
 				{
 					genericshape = *(new Lblock);
+					std::cout << "\nTESTCASE : SWAP-SHAPE :[Previous Shape changed to L-Block] Passed!\n";
 				}
 				if (type == 7)
 				{
 					genericshape = *(new Tblock);
+					std::cout << "\nTESTCASE : SWAP-SHAPE :[Previous Shape changed to T-Block] Passed!\n";
 				}
 				// Saved Conversion
 				if (savedtype == 1) // Add for saved type
@@ -177,6 +189,7 @@ void Game::pollEvents() {
 					Itemp.rotate();
 					genericshape = ParentShape(Itemp.point1x, Itemp.point1y, Itemp.point2x, Itemp.point2y,
 						Itemp.point3x, Itemp.point3y, Itemp.point4x, Itemp.point4y);
+					std::cout << "\nTESTCASE : ROTATION :[Rotation for I-Block] Passed!\n";
 				}
 				if (this->type == 2)
 				{
@@ -189,6 +202,7 @@ void Game::pollEvents() {
 					genericshape.point2.Cube.setFillColor(Jtemp.point1.Cube.getFillColor());
 					genericshape.point3.Cube.setFillColor(Jtemp.point1.Cube.getFillColor());
 					genericshape.point4.Cube.setFillColor(Jtemp.point1.Cube.getFillColor());
+					std::cout << "\nTESTCASE : ROTATION :[Rotation for J-Block] Passed!\n";
 				}
 				// No Rotate for O Block
 				if (this->type == 4)
@@ -202,6 +216,7 @@ void Game::pollEvents() {
 					genericshape.point2.Cube.setFillColor(Ztemp.point1.Cube.getFillColor());
 					genericshape.point3.Cube.setFillColor(Ztemp.point1.Cube.getFillColor());
 					genericshape.point4.Cube.setFillColor(Ztemp.point1.Cube.getFillColor());
+					std::cout << "\nTESTCASE : ROTATION :[Rotation for Z-Block] Passed!\n";
 				}
 				if (this->type == 5)
 				{
@@ -214,6 +229,8 @@ void Game::pollEvents() {
 					genericshape.point2.Cube.setFillColor(Stemp.point1.Cube.getFillColor());
 					genericshape.point3.Cube.setFillColor(Stemp.point1.Cube.getFillColor());
 					genericshape.point4.Cube.setFillColor(Stemp.point1.Cube.getFillColor());
+					std::cout << "\nTESTCASE : ROTATION :[Rotation for S-Block] Passed!\n";
+
 				}
 				if (this->type == 6)
 				{
@@ -226,6 +243,7 @@ void Game::pollEvents() {
 					genericshape.point2.Cube.setFillColor(Ltemp.point1.Cube.getFillColor());
 					genericshape.point3.Cube.setFillColor(Ltemp.point1.Cube.getFillColor());
 					genericshape.point4.Cube.setFillColor(Ltemp.point1.Cube.getFillColor());
+					std::cout << "\nTESTCASE : ROTATION :[Rotation for L-Block] Passed!\n";
 				}
 				if (this->type == 7)
 				{
@@ -238,6 +256,7 @@ void Game::pollEvents() {
 					genericshape.point2.Cube.setFillColor(Ttemp.point1.Cube.getFillColor());
 					genericshape.point3.Cube.setFillColor(Ttemp.point1.Cube.getFillColor());
 					genericshape.point4.Cube.setFillColor(Ttemp.point1.Cube.getFillColor());
+					std::cout << "\nTESTCASE : ROTATION :[Rotation for T-Block] Passed!\n";
 
 				}
 			}
@@ -337,7 +356,7 @@ void Game::render() {
 	}
 
 	//title and names
-	Font font;
+	/*Font font;
 	font.loadFromFile("./advanced_pixel-7.ttf");
 	Text title, names, next, saved, instructions;
 	title.setFont(font);
@@ -369,8 +388,8 @@ void Game::render() {
 	this->window->draw(names);
 	this->window->draw(next);
 	this->window->draw(saved);
-	this->window->draw(instructions);
-	
+	this->window->draw(instructions);*/
+
 
 	// current shape
 	genericshape.ParentShape::Draw(this->window);
